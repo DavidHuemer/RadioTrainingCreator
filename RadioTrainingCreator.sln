@@ -5,6 +5,8 @@ VisualStudioVersion = 16.0.31205.134
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RadioTrainingCreator", "RadioTrainingCreator\RadioTrainingCreator.csproj", "{AA0E32B3-0257-4377-8184-29E5238FC1CF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RadioTrainingCreator.GUI", "RadioTrainingCreator.GUI\RadioTrainingCreator.GUI.csproj", "{88C6B63C-BC08-48A3-9A9E-9C6D6F1AD219}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{AA0E32B3-0257-4377-8184-29E5238FC1CF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AA0E32B3-0257-4377-8184-29E5238FC1CF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AA0E32B3-0257-4377-8184-29E5238FC1CF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{88C6B63C-BC08-48A3-9A9E-9C6D6F1AD219}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{88C6B63C-BC08-48A3-9A9E-9C6D6F1AD219}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{88C6B63C-BC08-48A3-9A9E-9C6D6F1AD219}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{88C6B63C-BC08-48A3-9A9E-9C6D6F1AD219}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

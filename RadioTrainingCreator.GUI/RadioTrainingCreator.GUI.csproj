@@ -43,6 +43,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -57,6 +58,8 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Services\FileDialogService.cs" />
+    <Compile Include="Services\Interfaces\IFileDialogService.cs" />
     <Compile Include="ViewModels\Basics\BaseViewModel.cs" />
     <Compile Include="ViewModels\Basics\WindowViewModel.cs" />
     <Compile Include="ViewModels\WelcomeViewModels\NewProjectViewModels\NewProjectViewModel.cs" />

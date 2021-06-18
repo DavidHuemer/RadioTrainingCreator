@@ -1,4 +1,5 @@
-﻿using RadioTrainingCreator.GUI.ViewModels.Basics;
+﻿using RadioTrainingCreator.GUI.Services;
+using RadioTrainingCreator.GUI.ViewModels.Basics;
 using RadioTrainingCreator.GUI.ViewModels.WelcomeViewModels.NewProjectViewModels;
 
 namespace RadioTrainingCreator.GUI.ViewModels.WelcomeViewModels
@@ -9,7 +10,7 @@ namespace RadioTrainingCreator.GUI.ViewModels.WelcomeViewModels
 
         public WelcomeWindowViewModel() : base("Wilkommen zum Funkübung Ersteller")
         {
-            NewProjectViewModel = new NewProjectViewModel();
+            NewProjectViewModel = new NewProjectViewModel(new FileDialogService());
         }
     }
 }

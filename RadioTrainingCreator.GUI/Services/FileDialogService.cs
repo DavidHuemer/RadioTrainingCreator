@@ -1,4 +1,5 @@
-﻿using RadioTrainingCreator.GUI.Services.Interfaces;
+﻿using Microsoft.WindowsAPICodePack.Dialogs;
+using RadioTrainingCreator.GUI.Services.Interfaces;
 using System.Windows.Forms;
 
 namespace RadioTrainingCreator.GUI.Services
@@ -7,14 +8,17 @@ namespace RadioTrainingCreator.GUI.Services
     {
         public string GetFolder()
         {
-            using (var fbd = new FolderBrowserDialog())
+            var dialog = new CommonOpenFileDialog
             {
-                DialogResult result = fbd.ShowDialog();
-                if (result == DialogResult.OK && !string.IsNullOrWhiteSpace(fbd.SelectedPath))
-                    return fbd.SelectedPath;
-
-                return "";
+                IsFolderPicker = true
+            };
+            CommonFileDialogResult result = dialog.ShowDialog();
+            if(result == CommonFileDialogResult.Ok)
+            {
+                return dialog.FileName;
             }
+
+            return "";
         }
     }
 }

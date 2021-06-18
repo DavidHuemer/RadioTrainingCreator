@@ -61,20 +61,6 @@ namespace RadioTrainingCreator.GUI.ViewModels.WelcomeViewModels.NewProjectViewMo
 
         #endregion
 
-        #region CreateRadioTraining
-
-        public RelayCommand<string> CreateRadioTraining => new RelayCommand<string>(x =>
-        {
-            DoCreateRadioTraining();
-        }, x => true);
-
-        public void DoCreateRadioTraining()
-        {
-            Console.WriteLine("Create Radio Training");
-        }
-
-        #endregion
-
         #endregion
 
         #region UpdateFullPath

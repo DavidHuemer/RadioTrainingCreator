@@ -5,7 +5,6 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:RadioTrainingCreator.GUI.Views.Windows"
         xmlns:welcomeViewModels="clr-namespace:RadioTrainingCreator.GUI.ViewModels.WelcomeViewModels"
-        xmlns:welcomePanels="clr-namespace:RadioTrainingCreator.GUI.Views.Panels.WelcomeWindowPanels"
         mc:Ignorable="d"
         Title="{Binding Title}" Height="450" Width="800"
         WindowStartupLocation="CenterScreen">
@@ -13,12 +12,6 @@
         <welcomeViewModels:WelcomeWindowViewModel/>
     </Window.DataContext>
     <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="4*"/>
-            <ColumnDefinition Width="6*"/>
-        </Grid.ColumnDefinitions>
-
-        <welcomePanels:NewProjectPanel Grid.Column="1"
-                                       DataContext="{Binding NewProjectViewModel}"/>
+         
     </Grid>
 </Window>

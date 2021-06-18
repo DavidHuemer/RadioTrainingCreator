@@ -1,4 +1,5 @@
-﻿using System;
+﻿using RadioTrainingCreator.GUI.Views.Windows;
+using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
@@ -13,5 +14,9 @@ namespace RadioTrainingCreator
     /// </summary>
     public partial class App : Application
     {
+        private void RadioTraining_Startup(object sender, StartupEventArgs e)
+        {
+            new WelcomeWindow().Show();
+        }
     }
 }

@@ -40,6 +40,11 @@ namespace RadioTrainingCreator.GUI.ViewModels.WelcomeViewModels.NewProjectViewMo
             this.fileDialogService = fileDialogService;
         }
 
+        public NewProjectViewModel()
+        {
+
+        }
+
         #region Commands
 
         #region ChooseFolder

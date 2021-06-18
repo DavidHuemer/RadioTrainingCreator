@@ -125,6 +125,10 @@
       <Project>{ac055770-34d7-4a6c-a820-22ec8f85c713}</Project>
       <Name>RadioTrainingCreator.Data</Name>
     </ProjectReference>
+    <ProjectReference Include="..\RadioTrainingCreator.Handler\RadioTrainingCreator.Handler.csproj">
+      <Project>{9cf60640-2546-44bf-816b-dd9549a4902a}</Project>
+      <Name>RadioTrainingCreator.Handler</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\Fody.6.5.1\build\Fody.targets" Condition="Exists('..\packages\Fody.6.5.1\build\Fody.targets')" />

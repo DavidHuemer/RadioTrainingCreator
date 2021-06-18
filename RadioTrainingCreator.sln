@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RadioTrainingCreator.Tests"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RadioTrainingCreator.Data", "RadioTrainingCreator.Data\RadioTrainingCreator.Data.csproj", "{AC055770-34D7-4A6C-A820-22EC8F85C713}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RadioTrainingCreator.Handler", "RadioTrainingCreator.Handler\RadioTrainingCreator.Handler.csproj", "{9CF60640-2546-44BF-816B-DD9549A4902A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{AC055770-34D7-4A6C-A820-22EC8F85C713}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AC055770-34D7-4A6C-A820-22EC8F85C713}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AC055770-34D7-4A6C-A820-22EC8F85C713}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9CF60640-2546-44BF-816B-DD9549A4902A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9CF60640-2546-44BF-816B-DD9549A4902A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9CF60640-2546-44BF-816B-DD9549A4902A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9CF60640-2546-44BF-816B-DD9549A4902A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

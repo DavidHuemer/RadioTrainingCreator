@@ -105,6 +105,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\RadioTrainingCreator.Data\RadioTrainingCreator.Data.csproj">
+      <Project>{ac055770-34d7-4a6c-a820-22ec8f85c713}</Project>
+      <Name>RadioTrainingCreator.Data</Name>
+    </ProjectReference>
     <ProjectReference Include="..\RadioTrainingCreator.GUI\RadioTrainingCreator.GUI.csproj">
       <Project>{88c6b63c-bc08-48a3-9a9e-9c6d6f1ad219}</Project>
       <Name>RadioTrainingCreator.GUI</Name>

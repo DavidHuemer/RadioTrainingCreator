@@ -10,29 +10,29 @@ namespace RadioTrainingCreator.Tests.GUI.ViewModels.WelcomeViewModelsTests
         #region UpdateFullPath
 
         [Theory]
-        [InlineData(@"C:\Feuerwehr", "Uebung", @"C:\Feuerwehr\Uebung")]
-        [InlineData(@"C:\Feuerwehr\", "Uebung", @"C:\Feuerwehr\Uebung")]
-        [InlineData(@"C:\Feuerwehr", "", @"C:\Feuerwehr\")]
-        [InlineData(@"C:\Feuerwehr\", "", @"C:\Feuerwehr\")]
-        [InlineData(@"", "Uebung", @"Uebung")]
-        public void UpdateFullPath_Tests(string folder, string name, string expected)
+        [InlineData(@"C:\Feuerwehr", "Uebung", "Uebung.fue", @"C:\Feuerwehr\Uebung.fue")]
+        [InlineData(@"C:\Feuerwehr\", "Uebung", "Uebung.fue", @"C:\Feuerwehr\Uebung.fue")]
+        [InlineData(@"C:\Feuerwehr", "", "", @"C:\Feuerwehr")]
+        [InlineData(@"C:\Feuerwehr\", "", "", @"C:\Feuerwehr")]
+        [InlineData(@"", "Uebung", "Uebung.fue", @"Uebung.fue")]
+        public void UpdateFullPath_Tests(string folder, string name, string nameExpected, string expected)
         {
             var mock = new Mock<IFileDialogService>();
             var vm = new NewProjectViewModel(mock.Object)
             {
                 ProjectName = name
             };
-            Assert.Equal(name, vm.FullPath);
+            Assert.Equal(nameExpected, vm.FullPath);
             vm.ProjectFolder = folder;
             Assert.Equal(expected, vm.FullPath);
         }
 
         [Theory]
-        [InlineData(@"C:\Feuerwehr", "Uebung", @"C:\Feuerwehr\", @"C:\Feuerwehr\Uebung")]
-        [InlineData(@"C:\Feuerwehr\", "Uebung", @"C:\Feuerwehr\", @"C:\Feuerwehr\Uebung")]
-        [InlineData(@"C:\Feuerwehr", "", @"C:\Feuerwehr\", @"C:\Feuerwehr\")]
-        [InlineData(@"C:\Feuerwehr\", "", @"C:\Feuerwehr\", @"C:\Feuerwehr\")]
-        [InlineData(@"", "Uebung", "", @"Uebung")]
+        [InlineData(@"C:\Feuerwehr", "Uebung", @"C:\Feuerwehr", @"C:\Feuerwehr\Uebung.fue")]
+        [InlineData(@"C:\Feuerwehr\", "Uebung", @"C:\Feuerwehr", @"C:\Feuerwehr\Uebung.fue")]
+        [InlineData(@"C:\Feuerwehr", "", @"C:\Feuerwehr", @"C:\Feuerwehr")]
+        [InlineData(@"C:\Feuerwehr\", "", @"C:\Feuerwehr", @"C:\Feuerwehr")]
+        [InlineData(@"", "Uebung", "", @"Uebung.fue")]
         public void UpdateFullPath_FolderFirst_Tests(string folder, string name, string folderExpected, string fullExpected)
         {
             var mock = new Mock<IFileDialogService>();

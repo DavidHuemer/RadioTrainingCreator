@@ -1,7 +1,9 @@
 ﻿using MVVM.Tools;
 using RadioTrainingCreator.GUI.Services.Interfaces;
 using RadioTrainingCreator.GUI.ViewModels.Basics;
+using RadioTrainingCreator.Handler.FilesHandler;
 using System;
+using System.IO;
 
 namespace RadioTrainingCreator.GUI.ViewModels.WelcomeViewModels.NewProjectViewModels
 {
@@ -84,33 +86,8 @@ namespace RadioTrainingCreator.GUI.ViewModels.WelcomeViewModels.NewProjectViewMo
         /// </summary>
         private void UpdateFullPath()
         {
-            if (ShouldAddSlash(ProjectFolder))
-            {
-                FullPath = $@"{ProjectFolder}\{ProjectName}";
-            }
-            else
-            {
-                FullPath = $@"{ProjectFolder}{ProjectName}";
-            }
-
-        }
-
-        /// <summary>
-        /// Returns if a slash should be added to the folder path
-        /// </summary>
-        /// <param name="folderPath">The folder that will be checked</param>
-        /// <returns>If a slash should be added to the folder</returns>
-        private bool ShouldAddSlash(string folderPath)
-        {
-            if (folderPath.Length == 0)
-                return false;
-
-            int lastIndex = folderPath.Length - 1;
-
-            if (folderPath[lastIndex] == '/' || folderPath[lastIndex] == '\\')
-                return false;
-
-            return true;
+            var path = FilePathHandler.CombineRadioTrainingPath(ProjectFolder, ProjectName);
+            FullPath = path;
         }
 
         #endregion

@@ -1,11 +1,13 @@
 ﻿using Moq;
+using RadioTrainingCreator.Data;
 using RadioTrainingCreator.GUI.Services.Interfaces;
 using RadioTrainingCreator.GUI.ViewModels.WelcomeViewModels.NewProjectViewModels;
+using RadioTrainingCreator.Tests.Basics;
 using Xunit;
 
 namespace RadioTrainingCreator.Tests.GUI.ViewModels.WelcomeViewModelsTests
 {
-    public class NewProjectViewModel_Tests
+    public class NewProjectViewModel_Tests : BaseTest
     {
         #region UpdateFullPath
 
@@ -46,8 +48,7 @@ namespace RadioTrainingCreator.Tests.GUI.ViewModels.WelcomeViewModelsTests
         }
 
         #endregion
-
-
+        
         #region GetFolder
 
         [Theory]
@@ -62,6 +63,67 @@ namespace RadioTrainingCreator.Tests.GUI.ViewModels.WelcomeViewModelsTests
             var newProjectViewModel = new NewProjectViewModel(mock.Object);
             newProjectViewModel.DoChooseFolder();
             Assert.Equal(expected, newProjectViewModel.ProjectFolder);
+        }
+
+        #endregion
+
+        #region CurrentOpenedProject
+
+        /// <summary>
+        /// Checks if the current opened project is the created project
+        /// </summary>
+        [Fact]
+        public void CurrentOpenedProject_Test()
+        {
+            var mock = new Mock<IFileDialogService>();
+            mock.Setup(service => service.GetFolder()).Returns("");
+
+            string folder = $"{TEST_ENVIRONMENT}";
+            string name = $"uebung.fue";
+
+            RequireNotExistingFile(folder, name);
+
+            var newProjectViewModel = new NewProjectViewModel(mock.Object)
+            {
+                ProjectName = "uebung",
+                ProjectFolder = folder,
+                Author = "Max",
+                Comment = "ExampleComment"
+            };
+
+            newProjectViewModel.DoCreateRadioTraining();
+            //CurrentOpenedProject.Instance.RadioTraining.Name ==
+            Assert.Equal("uebung", CurrentOpenedProject.Instance.RadioTraining.Name);
+            Assert.Equal("Max", CurrentOpenedProject.Instance.RadioTraining.Author);
+            Assert.Equal("ExampleComment", CurrentOpenedProject.Instance.RadioTraining.Comment);
+        }
+
+        /// <summary>
+        /// Checks if the current opened filePath is correct
+        /// </summary>
+        [Fact]
+        public void CurrenttProjectFilePath_Test()
+        {
+            var mock = new Mock<IFileDialogService>();
+            mock.Setup(service => service.GetFolder()).Returns("");
+
+            string folder = $"{TEST_ENVIRONMENT}";
+            string name = $"uebung.fue";
+
+            RequireNotExistingFile(folder, name);
+
+            var newProjectViewModel = new NewProjectViewModel(mock.Object)
+            {
+                ProjectName = "uebung",
+                ProjectFolder = folder,
+                Author = "Max",
+                Comment = "ExampleComment"
+            };
+
+            string fullPath = $"{folder}{name}";
+
+            newProjectViewModel.DoCreateRadioTraining();
+            Assert.Equal(fullPath, CurrentOpenedProject.Instance.OpenedProjectFile);
         }
 
         #endregion

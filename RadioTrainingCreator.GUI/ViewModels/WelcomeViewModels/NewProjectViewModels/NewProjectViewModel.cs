@@ -1,9 +1,9 @@
 ﻿using MVVM.Tools;
+using RadioTrainingCreator.Data;
 using RadioTrainingCreator.GUI.Services.Interfaces;
 using RadioTrainingCreator.GUI.ViewModels.Basics;
 using RadioTrainingCreator.Handler.FilesHandler;
 using System;
-using System.IO;
 
 namespace RadioTrainingCreator.GUI.ViewModels.WelcomeViewModels.NewProjectViewModels
 {
@@ -73,6 +73,10 @@ namespace RadioTrainingCreator.GUI.ViewModels.WelcomeViewModels.NewProjectViewMo
         public void DoCreateRadioTraining()
         {
             Console.WriteLine("Create Radio Training");
+            var createdRadioTraining = RadioTrainingProjectHandler
+                .CreateRadioTraining(ProjectFolder, ProjectName, Author, Comment);
+
+            CurrentOpenedProject.Instance.Init(createdRadioTraining);
         }
 
         #endregion

@@ -71,8 +71,8 @@
     <Compile Include="Services\Interfaces\IFileDialogService.cs" />
     <Compile Include="ViewModels\Basics\BaseViewModel.cs" />
     <Compile Include="ViewModels\Basics\WindowViewModel.cs" />
-    <Compile Include="ViewModels\WelcomeViewModels\MainWindowViewModels\MainWindowViewModel.cs" />
-    <Compile Include="ViewModels\WelcomeViewModels\MainWindowViewModels\MenuViewModels\MainMenuViewModel.cs" />
+    <Compile Include="ViewModels\MainWindowViewModels\MainWindowViewModel.cs" />
+    <Compile Include="ViewModels\MainWindowViewModels\MenuViewModels\MainMenuViewModel.cs" />
     <Compile Include="ViewModels\WelcomeViewModels\NewProjectViewModels\NewProjectViewModel.cs" />
     <Compile Include="ViewModels\WelcomeViewModels\WelcomeWindowViewModel.cs" />
     <Compile Include="Views\Panels\WelcomeWindowPanels\NewProjectPanel.xaml.cs">

@@ -1,6 +1,6 @@
 ﻿using RadioTrainingCreator.GUI.ViewModels.Basics;
 
-namespace RadioTrainingCreator.GUI.ViewModels.WelcomeViewModels.MainWindowViewModels
+namespace RadioTrainingCreator.GUI.ViewModels.MainWindowViewModels
 {
     public class MainWindowViewModel : WindowViewModel
     {

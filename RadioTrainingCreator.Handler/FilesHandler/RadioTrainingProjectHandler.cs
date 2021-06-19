@@ -1,4 +1,5 @@
 ﻿using RadioTrainingCreator.Data;
+using RadioTrainingCreator.Data.Files;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 
@@ -16,7 +17,7 @@ namespace RadioTrainingCreator.Handler.FilesHandler
         /// <param name="author">The author of the radio training</param>
         /// <param name="comment">The comment of the radioTraining</param>
         /// <returns>The created RadioTraining</returns>
-        public static RadioTraining CreateRadioTraining(string folderPath, string radioTrainingName, 
+        public static CreatedRadioTraining CreateRadioTraining(string folderPath, string radioTrainingName,
             string author, string comment)
         {
             CreeateDirectoryWhenRequired(folderPath);
@@ -35,7 +36,11 @@ namespace RadioTrainingCreator.Handler.FilesHandler
 
             SaveRadioTraining(projectFile, radioTraining);
 
-            return radioTraining;
+            return new CreatedRadioTraining
+            {
+                RadioTraining = radioTraining,
+                FilePath = projectFile
+            };
         }
 
         /// <summary>

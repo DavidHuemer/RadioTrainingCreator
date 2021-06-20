@@ -70,6 +70,7 @@
     <Compile Include="Services\FileDialogService.cs" />
     <Compile Include="Services\Interfaces\IFileDialogService.cs" />
     <Compile Include="Services\Interfaces\IMessageService.cs" />
+    <Compile Include="Services\Services\MessageServices\MessageBoxMessageService.cs" />
     <Compile Include="ViewModels\Basics\BaseViewModel.cs" />
     <Compile Include="ViewModels\Basics\WindowViewModel.cs" />
     <Compile Include="ViewModels\MainWindowViewModels\MainWindowViewModel.cs" />

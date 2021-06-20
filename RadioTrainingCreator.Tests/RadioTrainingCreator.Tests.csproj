@@ -78,6 +78,7 @@
     <Compile Include="GUI\ViewModels\WelcomeViewModelsTests\NewProjectViewModel_Tests.cs" />
     <Compile Include="Handler\Diagnostics\EnvironmentDetection_Tests.cs" />
     <Compile Include="Handler\FilesHandler\RadioTrainingProjectHandler_Tests.cs" />
+    <Compile Include="Handler\FilesHandler\RecentlyOpenedFilesHandler_Tests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

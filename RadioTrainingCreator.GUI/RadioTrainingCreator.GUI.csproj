@@ -72,6 +72,7 @@
     <Compile Include="Services\Interfaces\IMessageService.cs" />
     <Compile Include="Services\Services\MessageServices\ConsoleMessageService.cs" />
     <Compile Include="Services\Services\MessageServices\MessageBoxMessageService.cs" />
+    <Compile Include="Services\Services\MessageServices\MessageServiceHandler.cs" />
     <Compile Include="ViewModels\Basics\BaseViewModel.cs" />
     <Compile Include="ViewModels\Basics\WindowViewModel.cs" />
     <Compile Include="ViewModels\MainWindowViewModels\MainWindowViewModel.cs" />

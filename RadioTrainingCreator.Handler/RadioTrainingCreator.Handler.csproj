@@ -50,6 +50,7 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
+    <Compile Include="Services\Interfaces\FileInterfaces\IRecentlyOpenedFilesService.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\RadioTrainingCreator.Data\RadioTrainingCreator.Data.csproj">
@@ -63,6 +64,9 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Services\Services\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

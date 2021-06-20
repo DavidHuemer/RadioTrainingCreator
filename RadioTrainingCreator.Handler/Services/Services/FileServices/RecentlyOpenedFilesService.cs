@@ -1,9 +1,5 @@
 ﻿using RadioTrainingCreator.Handler.Services.Interfaces.FileInterfaces;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace RadioTrainingCreator.Handler.Services.Services.FileServices
 {
@@ -12,6 +8,11 @@ namespace RadioTrainingCreator.Handler.Services.Services.FileServices
         public void AddOrUpdateProject(string path)
         {
             throw new NotImplementedException();
+        }
+
+        public string GetRecentlyOpenedProjectsJSON()
+        {
+            return Properties.Settings.Default.RecentlyOpenedProjects;
         }
     }
 }

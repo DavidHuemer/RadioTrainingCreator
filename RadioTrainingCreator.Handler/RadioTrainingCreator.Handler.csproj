@@ -41,6 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Diagnostics\EnvironmentDetection.cs" />
     <Compile Include="FilesHandler\FilePathHandler.cs" />
     <Compile Include="FilesHandler\RadioTrainingProjectHandler.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -51,5 +52,6 @@
       <Name>RadioTrainingCreator.Data</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -67,8 +67,8 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Services\FileDialogService.cs" />
-    <Compile Include="Services\Interfaces\IFileDialogService.cs" />
+    <Compile Include="Services\Services\FileServices\FileDialogService.cs" />
+    <Compile Include="Services\Interfaces\FileInterfaces\IFileDialogService.cs" />
     <Compile Include="Services\Interfaces\IMessageService.cs" />
     <Compile Include="Services\Services\MessageServices\ConsoleMessageService.cs" />
     <Compile Include="Services\Services\MessageServices\MessageBoxMessageService.cs" />
@@ -137,6 +137,7 @@
       <Name>RadioTrainingCreator.Handler</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\Fody.6.5.1\build\Fody.targets" Condition="Exists('..\packages\Fody.6.5.1\build\Fody.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

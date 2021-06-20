@@ -1,4 +1,4 @@
-﻿namespace RadioTrainingCreator.GUI.Services.Interfaces
+﻿namespace RadioTrainingCreator.GUI.Services.Interfaces.FileInterfaces
 {
     public interface IFileDialogService
     {

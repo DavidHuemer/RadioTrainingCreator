@@ -1,6 +1,6 @@
 ﻿using MVVM.Tools;
 using RadioTrainingCreator.Data;
-using RadioTrainingCreator.GUI.Services.Interfaces;
+using RadioTrainingCreator.GUI.Services.Interfaces.FileInterfaces;
 using RadioTrainingCreator.GUI.ViewModels.Basics;
 using RadioTrainingCreator.Handler.FilesHandler;
 using System;

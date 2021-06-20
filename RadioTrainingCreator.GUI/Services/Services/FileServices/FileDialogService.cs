@@ -1,8 +1,7 @@
 ﻿using Microsoft.WindowsAPICodePack.Dialogs;
-using RadioTrainingCreator.GUI.Services.Interfaces;
-using System.Windows.Forms;
+using RadioTrainingCreator.GUI.Services.Interfaces.FileInterfaces;
 
-namespace RadioTrainingCreator.GUI.Services
+namespace RadioTrainingCreator.GUI.Services.FileServices
 {
     public class FileDialogService : IFileDialogService
     {

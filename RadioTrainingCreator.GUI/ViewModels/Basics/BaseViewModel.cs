@@ -26,7 +26,7 @@ namespace RadioTrainingCreator.GUI.ViewModels.Basics
 
         public BaseViewModel()
         {
-            MessageService = MessageServiceHandler.GetCorrectMessageService();
+            MessageService = MessageServiceHandler.GetCorrectMessageService(); 
         }
     }
 }

@@ -86,6 +86,9 @@
     <Compile Include="Views\Panels\WelcomeWindowPanels\NewProjectPanel.xaml.cs">
       <DependentUpon>NewProjectPanel.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\Panels\WelcomeWindowPanels\RecentlyOpenedPanel.xaml.cs">
+      <DependentUpon>RecentlyOpenedPanel.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Windows\WelcomeWindow.xaml.cs">
       <DependentUpon>WelcomeWindow.xaml</DependentUpon>
     </Compile>
@@ -98,6 +101,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="Views\Panels\WelcomeWindowPanels\NewProjectPanel.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Panels\WelcomeWindowPanels\RecentlyOpenedPanel.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

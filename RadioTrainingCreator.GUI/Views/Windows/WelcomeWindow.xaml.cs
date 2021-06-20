@@ -1,16 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using RadioTrainingCreator.GUI.ViewModels.WelcomeViewModels;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace RadioTrainingCreator.GUI.Views.Windows
 {
@@ -22,6 +11,10 @@ namespace RadioTrainingCreator.GUI.Views.Windows
         public WelcomeWindow()
         {
             InitializeComponent();
+
+            var vm = DataContext as WelcomeWindowViewModel;
+            vm.Init(Close);
+            DataContext = vm;
         }
     }
 }

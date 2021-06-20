@@ -20,6 +20,5 @@ namespace RadioTrainingCreator.Handler.Diagnostics
 
             return isUnitTesting;
         }
-        }
     }
 }

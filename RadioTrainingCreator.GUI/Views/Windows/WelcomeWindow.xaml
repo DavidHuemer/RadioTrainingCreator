@@ -18,6 +18,9 @@
             <ColumnDefinition Width="6*"/>
         </Grid.ColumnDefinitions>
 
+        <welcomePanels:RecentlyOpenedPanel Grid.Column="0"
+                                           DataContext="{Binding OpenProjectViewModel}"/>
+
         <welcomePanels:NewProjectPanel Grid.Column="1"
                                        DataContext="{Binding NewProjectViewModel}"/>
     </Grid>

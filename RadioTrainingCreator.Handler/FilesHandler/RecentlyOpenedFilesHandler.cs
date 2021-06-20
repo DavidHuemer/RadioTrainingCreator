@@ -16,6 +16,8 @@ namespace RadioTrainingCreator.Handler.FilesHandler
             this.recentlyOpenedFilesService = recentlyOpenedFilesService;
         }
 
+        #region Adding
+
         /// <summary>
         /// Adds or updates the recently opened file with the specific path
         /// </summary>
@@ -51,6 +53,33 @@ namespace RadioTrainingCreator.Handler.FilesHandler
             SaveRecentlyOpenedFiles(recentlyOpenedList);
         }
 
+        #endregion
+
+        #region Removing
+
+        /// <summary>
+        /// Removes the recentlyOpenedFile
+        /// </summary>
+        /// <param name="recentlyOpenedFile">The recently opened file that should be removed from the list</param>
+        public void RemoveRecentlyOpenedFile(RecentlyOpenedProject recentlyOpenedFile)
+        {
+            var recentlyOpenedList = GetRecentlyOpenedFiles();
+            var existing = recentlyOpenedList
+                .Where(x => x.Path == recentlyOpenedFile.Path)
+                .FirstOrDefault();
+
+            if (existing != null)
+            {
+                recentlyOpenedList.Remove(existing);
+            }
+
+            SaveRecentlyOpenedFiles(recentlyOpenedList);
+        }
+
+        #endregion+
+
+        #region GetRecentlyOpenedFiles
+
         /// <summary>
         /// Returns the list of the recently opened files
         /// </summary>
@@ -80,6 +109,10 @@ namespace RadioTrainingCreator.Handler.FilesHandler
             }
         }
 
+        #endregion
+
+        #region SaveRecentlyOpenedFiles
+
         /// <summary>
         /// Saves the recently opened files
         /// </summary>
@@ -89,5 +122,7 @@ namespace RadioTrainingCreator.Handler.FilesHandler
             var json = JsonConvert.SerializeObject(recentlyOpenedFiles);
             recentlyOpenedFilesService.Save(json);
         }
+
+        #endregion
     }
 }

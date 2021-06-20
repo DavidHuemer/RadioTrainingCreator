@@ -1,4 +1,7 @@
-﻿using System.ComponentModel;
+﻿using RadioTrainingCreator.GUI.Services.Interfaces;
+using RadioTrainingCreator.GUI.Services.Services.MessageServices;
+using RadioTrainingCreator.Handler.Diagnostics;
+using System.ComponentModel;
 using System.Runtime.CompilerServices;
 
 namespace RadioTrainingCreator.GUI.ViewModels.Basics
@@ -17,6 +20,13 @@ namespace RadioTrainingCreator.GUI.ViewModels.Basics
         protected void OnPropertyChanged([CallerMemberName] string name = null)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
+        }
+
+        protected IMessageService MessageService;
+
+        public BaseViewModel()
+        {
+            MessageService = MessageServiceHandler.GetCorrectMessageService();
         }
     }
 }

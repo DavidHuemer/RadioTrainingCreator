@@ -4,9 +4,24 @@ namespace RadioTrainingCreator.GUI.ViewModels.MainWindowViewModels
 {
     public class MainWindowViewModel : WindowViewModel
     {
-        public MainWindowViewModel() : base("RadioTrainingCreator")
+        #region Singleton
+
+        private static MainWindowViewModel instance = null;
+        public static MainWindowViewModel Instance
+        {
+            get
+            {
+                if (instance == null)
+                    instance = new MainWindowViewModel();
+                return instance;
+            }
+        }
+
+        private MainWindowViewModel() : base("RadioTrainingCreator")
         {
 
         }
+
+        #endregion
     }
 }

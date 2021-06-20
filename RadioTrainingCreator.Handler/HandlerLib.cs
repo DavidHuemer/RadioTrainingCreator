@@ -1,4 +1,7 @@
-﻿namespace RadioTrainingCreator.Handler
+﻿using RadioTrainingCreator.Handler.FilesHandler;
+using RadioTrainingCreator.Handler.Services.Services.FileServices;
+
+namespace RadioTrainingCreator.Handler
 {
     /// <summary>
     /// Contains handlers for the entire application
@@ -18,7 +21,14 @@
                 return instance;
             }
         }
+        private HandlerLib()
+        {
+
+        }
 
         #endregion
+
+        public RecentlyOpenedFilesHandler RecentlyOpenedFilesHandler { get; set; } =
+            new RecentlyOpenedFilesHandler(new RecentlyOpenedFilesService());
     }
 }

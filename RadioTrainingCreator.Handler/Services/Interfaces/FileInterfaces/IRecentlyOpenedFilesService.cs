@@ -8,5 +8,7 @@ namespace RadioTrainingCreator.Handler.Services.Interfaces.FileInterfaces
         void AddOrUpdateProject(string path);
 
         string GetRecentlyOpenedProjectsJSON();
+
+        void Save(string json);
     }
 }

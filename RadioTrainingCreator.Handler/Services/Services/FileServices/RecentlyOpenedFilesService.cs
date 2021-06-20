@@ -14,5 +14,11 @@ namespace RadioTrainingCreator.Handler.Services.Services.FileServices
         {
             return Properties.Settings.Default.RecentlyOpenedProjects;
         }
+
+        public void Save(string json)
+        {
+            Properties.Settings.Default.RecentlyOpenedProjects = json;
+            Properties.Settings.Default.Save();
+        }
     }
 }

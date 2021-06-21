@@ -81,7 +81,9 @@
     <Compile Include="Services\Services\WindowServices\WindowService.cs" />
     <Compile Include="Services\Services\WindowServices\WindowServiceHandler.cs" />
     <Compile Include="ViewModels\Basics\BaseViewModel.cs" />
+    <Compile Include="ViewModels\Basics\DataWindowViewModel.cs" />
     <Compile Include="ViewModels\Basics\WindowViewModel.cs" />
+    <Compile Include="ViewModels\DataWindowsViewModels\RadioTrainingDataWindowViewModel.cs" />
     <Compile Include="ViewModels\MainWindowViewModels\MainWindowViewModel.cs" />
     <Compile Include="ViewModels\MainWindowViewModels\MenuViewModels\MainMenuViewModel.cs" />
     <Compile Include="ViewModels\WelcomeViewModels\NewProjectViewModels\NewProjectViewModel.cs" />

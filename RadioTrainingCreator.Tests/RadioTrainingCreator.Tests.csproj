@@ -75,6 +75,7 @@
   <ItemGroup>
     <Compile Include="Basics\BaseTest.cs" />
     <Compile Include="GUI\Services\MessageServiceHandler_Tests.cs" />
+    <Compile Include="GUI\ViewModels\WelcomeViewModelsTests\NewProjectDataViewModel_Tests.cs" />
     <Compile Include="GUI\ViewModels\WelcomeViewModelsTests\NewProjectViewModel_Tests.cs" />
     <Compile Include="Handler\Diagnostics\EnvironmentDetection_Tests.cs" />
     <Compile Include="Handler\FilesHandler\RadioTrainingProjectHandler_Tests.cs" />

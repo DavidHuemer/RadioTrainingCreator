@@ -13,6 +13,16 @@
     </UserControl.DataContext>
 
     <Grid>
-        <ListBox ItemsSource="{Binding RecentlyOpenedProjects}"/>
+        <ListBox ItemsSource="{Binding RecentlyOpenedProjects}"
+                 SelectedItem="{Binding SelectedRecentlyOpenedProject}">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel>
+                        <Label Content="{Binding Name}"/>
+                        <Label Content="{Binding Path}"/>
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
     </Grid>
 </UserControl>

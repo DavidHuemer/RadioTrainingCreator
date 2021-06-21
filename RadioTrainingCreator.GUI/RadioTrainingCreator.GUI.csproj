@@ -70,12 +70,16 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Services\Interfaces\IWindowService.cs" />
     <Compile Include="Services\Services\FileServices\FileDialogService.cs" />
     <Compile Include="Services\Interfaces\FileInterfaces\IFileDialogService.cs" />
     <Compile Include="Services\Interfaces\IMessageService.cs" />
     <Compile Include="Services\Services\MessageServices\ConsoleMessageService.cs" />
     <Compile Include="Services\Services\MessageServices\MessageBoxMessageService.cs" />
     <Compile Include="Services\Services\MessageServices\MessageServiceHandler.cs" />
+    <Compile Include="Services\Services\WindowServices\TestingWindowService.cs" />
+    <Compile Include="Services\Services\WindowServices\WindowService.cs" />
+    <Compile Include="Services\Services\WindowServices\WindowServiceHandler.cs" />
     <Compile Include="ViewModels\Basics\BaseViewModel.cs" />
     <Compile Include="ViewModels\Basics\WindowViewModel.cs" />
     <Compile Include="ViewModels\MainWindowViewModels\MainWindowViewModel.cs" />
@@ -88,6 +92,9 @@
     </Compile>
     <Compile Include="Views\Panels\WelcomeWindowPanels\RecentlyOpenedPanel.xaml.cs">
       <DependentUpon>RecentlyOpenedPanel.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Windows\MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Windows\WelcomeWindow.xaml.cs">
       <DependentUpon>WelcomeWindow.xaml</DependentUpon>
@@ -105,6 +112,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\Panels\WelcomeWindowPanels\RecentlyOpenedPanel.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Windows\MainWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

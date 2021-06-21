@@ -1,21 +1,30 @@
-﻿using RadioTrainingCreator.Data.Files;
+﻿using MVVM.Tools;
+using RadioTrainingCreator.Data;
+using RadioTrainingCreator.Data.Files;
+using RadioTrainingCreator.GUI.Services.Interfaces;
+using RadioTrainingCreator.GUI.Services.Services.WindowServices;
 using RadioTrainingCreator.GUI.ViewModels.Basics;
 using RadioTrainingCreator.Handler.FilesHandler;
 using RadioTrainingCreator.Handler.Services.Interfaces.FileInterfaces;
 using RadioTrainingCreator.Handler.Services.Services.FileServices;
+using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Windows;
 
 namespace RadioTrainingCreator.GUI.ViewModels.WelcomeViewModels.OpenProjectViewModels
 {
     public class OpenProjectViewModel : BaseViewModel
     {
         private readonly RecentlyOpenedFilesHandler RecentlyOpenedFilesHandler;
+        private readonly IWindowService windowService;
 
         public OpenProjectViewModel(IRecentlyOpenedFilesService recentlyOpenedFilesService = null)
         {
             if (recentlyOpenedFilesService == null)
                 recentlyOpenedFilesService = new RecentlyOpenedFilesService();
+
+            windowService = WindowServiceHandler.GetCorrectWindowService();
 
             RecentlyOpenedFilesHandler = new RecentlyOpenedFilesHandler(recentlyOpenedFilesService);
             RecentlyOpenedProjects = RecentlyOpenedFilesHandler.GetRecentlyOpenedFiles();
@@ -45,21 +54,67 @@ namespace RadioTrainingCreator.GUI.ViewModels.WelcomeViewModels.OpenProjectViewM
 
         #endregion
 
+        #region Commands
+
+        public RelayCommand<string> OpenProject => new RelayCommand<string>(x =>
+        {
+            DoOpenProject();
+        }, x => true);
+
+        public void DoOpenProject()
+        {
+            
+        }
+
+        #endregion
+
+        /// <summary>
+        /// Opens the recently opened file
+        /// </summary>
+        /// <param name="recentlyOpenedProject">The recently opened file that should be opened</param>
         public void OpenRecentlyOpenedFile(RecentlyOpenedProject recentlyOpenedProject)
         {
+            if (recentlyOpenedProject == null)
+                return;
+
             try
             {
-                var recentlyOpened = RadioTrainingProjectHandler.LoadRadioTraining(recentlyOpenedProject.Path);
+                var projectToOpen = RadioTrainingProjectHandler.LoadRadioTraining(recentlyOpenedProject.Path);
+                OpenProjectAndClose(recentlyOpenedProject.Path, projectToOpen);
             }
             catch(FileNotFoundException fileNotFoundEx)
             {
-                //MessageService.AskQ
-                MessageService
+                Console.WriteLine(fileNotFoundEx.Message);
+                var result = MessageService.Show("Fehler beim laden", 
+                    $"Die Datei {recentlyOpenedProject.Path} ist nicht vorhanden, " +
+                    $"soll diese Datein von der Liste der zuletzt geöffneten Project entfernt werden?", 
+                    MessageBoxButton.YesNo, MessageBoxImage.Question, MessageBoxResult.Yes);
+
+                if(result == MessageBoxResult.Yes)
+                {
+                    RecentlyOpenedFilesHandler.RemoveRecentlyOpenedFile(recentlyOpenedProject);
+                }
+
             }
             catch(InvalidDataException invalidDataExpection)
             {
+                Console.WriteLine(invalidDataExpection.Message);
+                var result = MessageService.Show("Fehler beim laden",
+                    $"Die Datei {recentlyOpenedProject.Path} konnte nicht geladen werden, " +
+                    $"soll diese Datein von der Liste der zuletzt geöffneten Project entfernt werden?",
+                    MessageBoxButton.YesNo, MessageBoxImage.Question, MessageBoxResult.Yes);
 
+                if (result == MessageBoxResult.Yes)
+                {
+                    RecentlyOpenedFilesHandler.RemoveRecentlyOpenedFile(recentlyOpenedProject);
+                }
             }
+        }
+
+        public void OpenProjectAndClose(string path, RadioTraining radioTraining)
+        {
+            MainWindowViewModels.MainWindowViewModel.Instance.Open(path, radioTraining);
+            windowService.Open(MainWindowViewModels.MainWindowViewModel.Instance);
         }
     }
 }

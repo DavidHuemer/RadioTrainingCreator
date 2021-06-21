@@ -6,13 +6,9 @@
              xmlns:local="clr-namespace:RadioTrainingCreator.GUI.Views.Panels.WelcomeWindowPanels"
              xmlns:newProjectVms="clr-namespace:RadioTrainingCreator.GUI.ViewModels.WelcomeViewModels.NewProjectViewModels"
              mc:Ignorable="d" 
+             d:DataContext="{d:DesignInstance Type=newProjectVms:NewProjectDataViewModel}"
              d:DesignHeight="450" d:DesignWidth="800">
 
-    <UserControl.DataContext>
-        <newProjectVms:NewProjectViewModel/>
-    </UserControl.DataContext>
-    
-    
     <UserControl.Resources>
         <GridLength x:Key="InputHeight">34</GridLength>
 

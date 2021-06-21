@@ -2,6 +2,7 @@
 using RadioTrainingCreator.Data;
 using RadioTrainingCreator.GUI.Services.Interfaces.FileInterfaces;
 using RadioTrainingCreator.GUI.ViewModels.Basics;
+using RadioTrainingCreator.GUI.ViewModels.MainWindowViewModels;
 using RadioTrainingCreator.Handler.FilesHandler;
 using System;
 
@@ -33,9 +34,15 @@ namespace RadioTrainingCreator.GUI.ViewModels.WelcomeViewModels.NewProjectViewMo
 
         #endregion
 
+        #region Private variables
+
         private readonly IFileDialogService fileDialogService;
         private string projectName = "";
         private string projectFolder = "";
+
+        private Action projectCreated;
+
+        #endregion
 
         public NewProjectViewModel(IFileDialogService fileDialogService)
         {
@@ -45,6 +52,11 @@ namespace RadioTrainingCreator.GUI.ViewModels.WelcomeViewModels.NewProjectViewMo
         public NewProjectViewModel()
         {
 
+        }
+
+        public void Init(Action projectCreated)
+        {
+            this.projectCreated = projectCreated;
         }
 
         #region Commands
@@ -76,7 +88,10 @@ namespace RadioTrainingCreator.GUI.ViewModels.WelcomeViewModels.NewProjectViewMo
             var createdRadioTraining = RadioTrainingProjectHandler
                 .CreateRadioTraining(ProjectFolder, ProjectName, Author, Comment);
 
-            CurrentOpenedProject.Instance.Init(createdRadioTraining);
+            //CurrentOpenedProject.Instance.Init(createdRadioTraining);
+            MainWindowViewModel.Instance.Open(createdRadioTraining.FilePath, createdRadioTraining.RadioTraining);
+
+            projectCreated?.Invoke();
         }
 
         #endregion

@@ -87,6 +87,9 @@
     <Compile Include="ViewModels\WelcomeViewModels\NewProjectViewModels\NewProjectViewModel.cs" />
     <Compile Include="ViewModels\WelcomeViewModels\OpenProjectViewModels\OpenProjectViewModel.cs" />
     <Compile Include="ViewModels\WelcomeViewModels\WelcomeWindowViewModel.cs" />
+    <Compile Include="Views\Panels\MainWindowPanels\MenuPanel.xaml.cs">
+      <DependentUpon>MenuPanel.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Panels\WelcomeWindowPanels\NewProjectPanel.xaml.cs">
       <DependentUpon>NewProjectPanel.xaml</DependentUpon>
     </Compile>
@@ -107,6 +110,10 @@
       <DependentUpon>UserControl1.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Views\Panels\MainWindowPanels\MenuPanel.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\Panels\WelcomeWindowPanels\NewProjectPanel.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

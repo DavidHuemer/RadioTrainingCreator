@@ -1,4 +1,5 @@
-﻿using RadioTrainingCreator.Handler.FilesHandler;
+﻿using Newtonsoft.Json;
+using RadioTrainingCreator.Handler.FilesHandler;
 using RadioTrainingCreator.Tests.Basics;
 using System.IO;
 using Xunit;
@@ -8,6 +9,8 @@ namespace RadioTrainingCreator.Tests.Handler.FilesHandler
     public class RadioTrainingProjectHandler_Tests : BaseTest
     {
         //const string RADRIO_TRAINING_NAME = "testUebung"
+
+        #region Create_Tests
 
         /// <summary>
         /// Checks if the RadioTrainingProjectHandler creates a folder when no folder is existing
@@ -49,6 +52,17 @@ namespace RadioTrainingCreator.Tests.Handler.FilesHandler
             Assert.True(File.Exists(filePath));
         }
 
+        [Fact]
+        public void Create_Project_CorrectProject_Test()
+        {
+            string folderPath = $"{TEST_ENVIRONMENT}CreateNewProjectDirectory";
+            var filePath = RequireNotExistingFile(folderPath, "uebung.fue");
+            var created = RadioTrainingProjectHandler.CreateRadioTraining(folderPath, "uebung", "", "");
+            var loadedRadioTraining = RadioTrainingProjectHandler.LoadRadioTraining(filePath);
 
+            AssertAreEqual(created.RadioTraining, loadedRadioTraining);
+        }
+
+        #endregion
     }
 }

@@ -90,12 +90,12 @@ namespace RadioTrainingCreator.Handler.FilesHandler
 
             try
             {
-                var recentlyOpenedPaths = JsonConvert.DeserializeObject<List<string>>(json);
+                var recentlyOpenedPaths = JsonConvert.DeserializeObject<List<RecentlyOpenedProject>>(json);
                 return recentlyOpenedPaths
                     .Select(x => new RecentlyOpenedProject
                     {
-                        Name = Path.GetFileNameWithoutExtension(x),
-                        Path = x
+                        Name = x.Name,
+                        Path = x.Path
                     })
                     .ToList();
             }

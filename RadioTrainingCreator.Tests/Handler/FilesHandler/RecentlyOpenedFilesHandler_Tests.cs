@@ -11,7 +11,7 @@ namespace RadioTrainingCreator.Tests.Handler.FilesHandler
         public void GetRecentlyOpenedFiles_Test()
         {
             var mock = new Mock<IRecentlyOpenedFilesService>();
-            mock.Setup(service => service.GetRecentlyOpenedProjectsJSON()).Returns("[\"C:/Test/uebung.fue\"]");
+            mock.Setup(service => service.GetRecentlyOpenedProjectsJSON()).Returns("[{\"Name\":\"uebung\",\"Path\":\"C:/Test/uebung.fue\"}]");
 
             var handler = new RecentlyOpenedFilesHandler(mock.Object);
             var recentlyOpenedList = handler.GetRecentlyOpenedFiles();

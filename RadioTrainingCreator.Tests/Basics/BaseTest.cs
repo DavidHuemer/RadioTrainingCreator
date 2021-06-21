@@ -24,7 +24,10 @@ namespace RadioTrainingCreator.Tests.Basics
             string filePath = Path.Combine(folder, fileName);
             if (!File.Exists(filePath))
             {
-                File.Create(filePath);
+                using (var stream = File.Create(filePath))
+                {
+                    // Use stream
+                }
             }
 
             return filePath;

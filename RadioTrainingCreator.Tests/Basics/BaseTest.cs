@@ -1,4 +1,6 @@
-﻿using System.IO;
+﻿using Newtonsoft.Json;
+using System.IO;
+using Xunit;
 
 namespace RadioTrainingCreator.Tests.Basics
 {
@@ -57,6 +59,18 @@ namespace RadioTrainingCreator.Tests.Basics
             {
                 Directory.CreateDirectory(folder);
             }
+        }
+
+        /// <summary>
+        /// Checks if the two objects are equal
+        /// </summary>
+        /// <param name="obj1"></param>
+        /// <param name="obj2"></param>
+        protected void AssertAreEqual(object obj1, object obj2)
+        {
+            var obj1Str = JsonConvert.SerializeObject(obj1);
+            var obj2Str = JsonConvert.SerializeObject(obj2);
+            Assert.Equal(obj1Str, obj2Str);
         }
     }
 }

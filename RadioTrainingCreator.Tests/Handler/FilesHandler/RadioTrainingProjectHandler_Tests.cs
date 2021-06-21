@@ -1,7 +1,9 @@
 ﻿using Newtonsoft.Json;
 using RadioTrainingCreator.Handler.FilesHandler;
 using RadioTrainingCreator.Tests.Basics;
+using System;
 using System.IO;
+using System.Runtime.Serialization.Formatters.Binary;
 using Xunit;
 
 namespace RadioTrainingCreator.Tests.Handler.FilesHandler
@@ -61,6 +63,54 @@ namespace RadioTrainingCreator.Tests.Handler.FilesHandler
             var loadedRadioTraining = RadioTrainingProjectHandler.LoadRadioTraining(filePath);
 
             AssertAreEqual(created.RadioTraining, loadedRadioTraining);
+        }
+
+        #endregion
+
+        #region Open Tests
+
+        [Fact]
+        public void Open_NotExistingFile_Test()
+        {
+            string folderPath = $"{TEST_ENVIRONMENT}CreateNewProjectDirectory";
+            string filePath = RequireNotExistingFile(folderPath, "notExisting.fue");
+
+            Assert.Throws<FileNotFoundException>(() => RadioTrainingProjectHandler.LoadRadioTraining(filePath));
+        }
+
+        [Fact]
+        public void Open_Empty_Test()
+        {
+            string folderPath = $"{TEST_ENVIRONMENT}CreateNewProjectDirectory";
+            string filePath = RequireExistingFile(folderPath, "emptyFileFormat.fue");
+            Assert.Throws<InvalidDataException>(() => RadioTrainingProjectHandler.LoadRadioTraining(filePath));
+        }
+
+        [Fact]
+        public void Open_WrongFile_Test()
+        {
+            string folderPath = $"{TEST_ENVIRONMENT}CreateNewProjectDirectory";
+            string filePath = RequireExistingFile(folderPath, "wrongFileFormat.fue");
+
+            var formatter = new BinaryFormatter();
+            var stream = File.Open(filePath, FileMode.Create);
+            formatter.Serialize(stream, new WrongFileFormat { Abc = "David" });
+            stream.Close();
+
+            Assert.Throws<InvalidDataException>(() => RadioTrainingProjectHandler.LoadRadioTraining(filePath));
+        }
+
+        #endregion
+
+        #region Wrong File class
+
+        /// <summary>
+        /// Used for checking what happens when a wrong fileFormat is loaded
+        /// </summary>
+        [Serializable]
+        class WrongFileFormat
+        {
+            public string Abc { get; set; }
         }
 
         #endregion

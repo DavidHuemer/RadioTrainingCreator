@@ -1,5 +1,6 @@
 ﻿using RadioTrainingCreator.Data;
 using RadioTrainingCreator.Data.Files;
+using System;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 
@@ -70,6 +71,29 @@ namespace RadioTrainingCreator.Handler.FilesHandler
             var stream = File.Open(filePath, FileMode.Create);
             formatter.Serialize(stream, radioTraining);
             stream.Close();
+        }
+
+        #endregion
+
+        #region Open
+
+        public static RadioTraining LoadRadioTraining(string path)
+        {
+            if (!File.Exists(path))
+                throw new FileNotFoundException($"The path {path} does not exist");
+
+            try
+            {
+                var formatter = new BinaryFormatter();
+                var stream = File.Open(path, FileMode.Open);
+                var radioTraining = (RadioTraining)formatter.Deserialize(stream);
+                stream.Close();
+                return radioTraining;
+            }
+            catch(Exception ex)
+            {
+                throw new InvalidDataException(ex.Message);
+            }
         }
 
         #endregion

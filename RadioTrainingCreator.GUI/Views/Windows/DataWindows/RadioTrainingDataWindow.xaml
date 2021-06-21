@@ -1,0 +1,15 @@
+﻿<Window x:Class="RadioTrainingCreator.GUI.Views.Windows.DataWindows.RadioTrainingDataWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:RadioTrainingCreator.GUI.Views.Windows.DataWindows"
+        xmlns:dataVms="clr-namespace:RadioTrainingCreator.GUI.ViewModels.DataWindowsViewModels"
+        xmlns:welcomeWindows="clr-namespace:RadioTrainingCreator.GUI.Views.Panels.WelcomeWindowPanels"
+        mc:Ignorable="d"
+        Title="RadioTrainingDataWindow" Height="450" Width="800"
+        d:DataContext="{d:DesignInstance Type=dataVms:RadioTrainingDataWindowViewModel}">
+    <Grid>
+        <welcomeWindows:NewProjectPanel DataContext="{Binding DataViewModel}"/>
+    </Grid>
+</Window>

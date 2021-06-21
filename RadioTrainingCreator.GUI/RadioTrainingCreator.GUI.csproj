@@ -86,6 +86,7 @@
     <Compile Include="ViewModels\DataWindowsViewModels\RadioTrainingDataWindowViewModel.cs" />
     <Compile Include="ViewModels\MainWindowViewModels\MainWindowViewModel.cs" />
     <Compile Include="ViewModels\MainWindowViewModels\MenuViewModels\MainMenuViewModel.cs" />
+    <Compile Include="ViewModels\WelcomeViewModels\NewProjectViewModels\NewProjectDataViewModel.cs" />
     <Compile Include="ViewModels\WelcomeViewModels\NewProjectViewModels\NewProjectViewModel.cs" />
     <Compile Include="ViewModels\WelcomeViewModels\OpenProjectViewModels\OpenProjectViewModel.cs" />
     <Compile Include="ViewModels\WelcomeViewModels\WelcomeWindowViewModel.cs" />
@@ -97,6 +98,9 @@
     </Compile>
     <Compile Include="Views\Panels\WelcomeWindowPanels\RecentlyOpenedPanel.xaml.cs">
       <DependentUpon>RecentlyOpenedPanel.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Windows\DataWindows\RadioTrainingDataWindow.xaml.cs">
+      <DependentUpon>RadioTrainingDataWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Windows\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
@@ -121,6 +125,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\Panels\WelcomeWindowPanels\RecentlyOpenedPanel.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Windows\DataWindows\RadioTrainingDataWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

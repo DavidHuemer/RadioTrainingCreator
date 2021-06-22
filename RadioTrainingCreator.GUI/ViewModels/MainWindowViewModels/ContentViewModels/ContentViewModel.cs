@@ -7,12 +7,12 @@ namespace RadioTrainingCreator.GUI.ViewModels.MainWindowViewModels.ContentViewMo
     /// <summary>
     /// Handles the navigation between the different pages
     /// </summary>
-    public class NavigationViewModel : BaseViewModel
+    public class ContentViewModel : BaseViewModel
     {
         public FireDepartmentsPageViewModel FireDepartmentsPage { get; set; }
         public LocationsPageViewModel LocationsPage { get; set; }
 
-        public NavigationViewModel()
+        public ContentViewModel()
         {
             FireDepartmentsPage = new FireDepartmentsPageViewModel();
             LocationsPage = new LocationsPageViewModel();

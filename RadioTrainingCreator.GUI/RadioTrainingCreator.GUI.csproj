@@ -87,7 +87,7 @@
     <Compile Include="ViewModels\DataWindowsViewModels\RadioTrainingDataWindowViewModel.cs" />
     <Compile Include="ViewModels\MainWindowViewModels\ContentViewModels\FireDepartments\FireDepartmentsPageViewModel.cs" />
     <Compile Include="ViewModels\MainWindowViewModels\ContentViewModels\Locations\LocationsPageViewModel.cs" />
-    <Compile Include="ViewModels\MainWindowViewModels\ContentViewModels\NavigationViewModel.cs" />
+    <Compile Include="ViewModels\MainWindowViewModels\ContentViewModels\ContentViewModel.cs" />
     <Compile Include="ViewModels\MainWindowViewModels\MainWindowViewModel.cs" />
     <Compile Include="ViewModels\MainWindowViewModels\MenuViewModels\MainMenuViewModel.cs" />
     <Compile Include="ViewModels\WelcomeViewModels\NewProjectViewModels\NewProjectDataViewModel.cs" />
@@ -117,6 +117,10 @@
     <Compile Include="Views\Windows\WelcomeWindow.xaml.cs">
       <DependentUpon>WelcomeWindow.xaml</DependentUpon>
     </Compile>
+    <Page Include="Styles\Basics\Colors.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Styles\Controls\Custom\NavigationStyles.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

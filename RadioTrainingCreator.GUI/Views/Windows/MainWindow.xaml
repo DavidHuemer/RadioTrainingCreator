@@ -4,15 +4,19 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:RadioTrainingCreator.GUI.Views.Windows"
+        xmlns:mainWindowVms="clr-namespace:RadioTrainingCreator.GUI.ViewModels.MainWindowViewModels"
         xmlns:mainWindowPanels="clr-namespace:RadioTrainingCreator.GUI.Views.Panels.MainWindowPanels"
+        xmlns:contentPanels="clr-namespace:RadioTrainingCreator.GUI.Views.Panels.MainWindowPanels.ContentPanels"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="450" Width="800"
+        d:DataContext="{d:DesignInstance Type=mainWindowVms:MainWindowViewModel}">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="18"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        
+         
         <mainWindowPanels:MenuPanel/>
+        <contentPanels:ContentPanel Grid.Row="1" DataContext="{Binding ContentVM}"/>
     </Grid>
 </Window>

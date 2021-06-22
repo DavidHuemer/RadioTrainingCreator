@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using RadioTrainingCreator.GUI.ViewModels.MainWindowViewModels;
+using System.Windows;
 
 namespace RadioTrainingCreator.GUI.Views.Windows
 {
@@ -15,7 +16,7 @@ namespace RadioTrainingCreator.GUI.Views.Windows
             get
             {
                 if (instance == null)
-                    return new MainWindow();
+                    instance = new MainWindow();
 
                 return instance;
             }
@@ -26,6 +27,8 @@ namespace RadioTrainingCreator.GUI.Views.Windows
         public MainWindow()
         {
             InitializeComponent();
+            DataContext = MainWindowViewModel.Instance;
+            MainWindowViewModel.Instance.Init(Close);
         }
     }
 }

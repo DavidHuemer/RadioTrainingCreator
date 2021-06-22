@@ -28,7 +28,7 @@ namespace RadioTrainingCreator.GUI.ViewModels.Basics
         /// <summary>
         /// Closes the window
         /// </summary>
-        protected void CloseWindow()
+        public void CloseWindow()
         {
             close?.Invoke();
         }

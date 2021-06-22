@@ -22,6 +22,6 @@
                                            DataContext="{Binding OpenProjectViewModel}"/>
 
         <welcomePanels:NewProjectPanel Grid.Column="1"
-                                       DataContext="{Binding NewProjectViewModel}"/>
+                                       DataContext="{Binding NewProjectViewModel.DataViewModel}"/>
     </Grid>
 </Window>

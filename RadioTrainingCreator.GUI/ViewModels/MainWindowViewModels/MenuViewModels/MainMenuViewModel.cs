@@ -62,6 +62,20 @@ namespace RadioTrainingCreator.GUI.ViewModels.MainWindowViewModels.MenuViewModel
 
         #endregion
 
+        #region Close Command
+
+        public RelayCommand<string> Close => new RelayCommand<string>(x =>
+        {
+            DoCloseProject();
+        }, x => true);
+
+        public void DoCloseProject()
+        {
+            MainWindowViewModel.Instance.CloseWindow();
+        }
+
+        #endregion
+
         #endregion
 
         private void NewProjectCreated(CreatedRadioTraining data)

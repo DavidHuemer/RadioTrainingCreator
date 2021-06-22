@@ -113,6 +113,10 @@
     <Compile Include="Views\Windows\WelcomeWindow.xaml.cs">
       <DependentUpon>WelcomeWindow.xaml</DependentUpon>
     </Compile>
+    <Page Include="Styles\Controls\Default\ButtonStyles.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="UserControl1.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

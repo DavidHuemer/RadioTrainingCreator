@@ -85,6 +85,7 @@
     <Compile Include="ViewModels\Basics\PageViewModel.cs" />
     <Compile Include="ViewModels\Basics\WindowViewModel.cs" />
     <Compile Include="ViewModels\DataWindowsViewModels\RadioTrainingDataWindowViewModel.cs" />
+    <Compile Include="ViewModels\MainWindowViewModels\ContentViewModels\NavigationViewModel.cs" />
     <Compile Include="ViewModels\MainWindowViewModels\MainWindowViewModel.cs" />
     <Compile Include="ViewModels\MainWindowViewModels\MenuViewModels\MainMenuViewModel.cs" />
     <Compile Include="ViewModels\WelcomeViewModels\NewProjectViewModels\NewProjectDataViewModel.cs" />

@@ -90,6 +90,7 @@
     <Compile Include="ViewModels\WelcomeViewModels\NewProjectViewModels\NewProjectViewModel.cs" />
     <Compile Include="ViewModels\WelcomeViewModels\OpenProjectViewModels\OpenProjectViewModel.cs" />
     <Compile Include="ViewModels\WelcomeViewModels\WelcomeWindowViewModel.cs" />
+    <Compile Include="Views\Controls\Custom\Buttons\NavigationButton.cs" />
     <Compile Include="Views\Controls\Default\ExButton.cs" />
     <Compile Include="Views\Panels\MainWindowPanels\ContentPanels\ContentPanel.xaml.cs">
       <DependentUpon>ContentPanel.xaml</DependentUpon>

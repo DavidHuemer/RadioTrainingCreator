@@ -4,6 +4,14 @@
              xmlns:local="clr-namespace:RadioTrainingCreator"
              Startup="RadioTraining_Startup">
     <Application.Resources>
-         
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/RadioTrainingCreator.GUI;component/Styles/Basics/Colors.xaml"/>
+                
+                <ResourceDictionary Source="pack://application:,,,/RadioTrainingCreator.GUI;component/Styles/Controls/Default/ButtonStyles.xaml"/>
+                
+                <ResourceDictionary Source="pack://application:,,,/RadioTrainingCreator.GUI;component/Styles/Controls/Custom/NavigationStyles.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
     </Application.Resources>
 </Application>

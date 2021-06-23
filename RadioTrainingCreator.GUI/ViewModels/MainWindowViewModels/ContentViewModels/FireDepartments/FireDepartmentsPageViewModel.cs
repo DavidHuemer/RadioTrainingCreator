@@ -4,9 +4,11 @@ namespace RadioTrainingCreator.GUI.ViewModels.MainWindowViewModels.ContentViewMo
 {
     public class FireDepartmentsPageViewModel : PageViewModel
     {
+        public FireDepartmentEditorViewModel FireDepartmentEditor { get; set; }
+
         public FireDepartmentsPageViewModel() : base("Feuerwehren")
         {
-
+            FireDepartmentEditor = new FireDepartmentEditorViewModel();
         }
     }
 }

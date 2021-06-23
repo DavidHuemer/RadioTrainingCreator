@@ -70,6 +70,7 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Converter\NavigationItemSelectedConverter.cs" />
     <Compile Include="Services\Interfaces\IWindowService.cs" />
     <Compile Include="Services\Services\FileServices\FileDialogService.cs" />
     <Compile Include="Services\Interfaces\FileInterfaces\IFileDialogService.cs" />

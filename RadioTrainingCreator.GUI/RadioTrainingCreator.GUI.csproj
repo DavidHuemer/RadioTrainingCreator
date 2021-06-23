@@ -106,6 +106,9 @@
     <Compile Include="Views\Panels\MainWindowPanels\ContentPanels\LocationPanels\LocationsPanel.xaml.cs">
       <DependentUpon>LocationsPanel.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\Panels\MainWindowPanels\ContentPanels\NavigationPanel.xaml.cs">
+      <DependentUpon>NavigationPanel.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Panels\MainWindowPanels\MenuPanel.xaml.cs">
       <DependentUpon>MenuPanel.xaml</DependentUpon>
     </Compile>
@@ -153,6 +156,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\Panels\MainWindowPanels\ContentPanels\LocationPanels\LocationsPanel.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Panels\MainWindowPanels\ContentPanels\NavigationPanel.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

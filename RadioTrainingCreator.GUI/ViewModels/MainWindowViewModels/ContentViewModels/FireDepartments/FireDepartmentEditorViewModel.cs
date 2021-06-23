@@ -6,5 +6,11 @@ namespace RadioTrainingCreator.GUI.ViewModels.MainWindowViewModels.ContentViewMo
     {
         public string RadioCallName { get; set; } = "";
         public string Name { get; set; } = "";
+
+        public override void Clear()
+        {
+            RadioCallName = "";
+            Name = "";
+        }
     }
 }

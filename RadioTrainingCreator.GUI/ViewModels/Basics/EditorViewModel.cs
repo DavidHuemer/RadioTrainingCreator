@@ -5,6 +5,11 @@
     /// </summary>
     public abstract class EditorViewModel : BaseViewModel
     {
+        public bool IsVisible { get; set; } = false;
 
+        public void Add()
+        {
+            IsVisible = true;
+        }
     }
 }

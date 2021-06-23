@@ -1,5 +1,6 @@
 ﻿using RadioTrainingCreator.Data;
 using RadioTrainingCreator.GUI.ViewModels.Basics;
+using RadioTrainingCreator.GUI.ViewModels.MainWindowViewModels.ContentViewModels;
 using RadioTrainingCreator.Handler;
 
 namespace RadioTrainingCreator.GUI.ViewModels.MainWindowViewModels
@@ -19,12 +20,14 @@ namespace RadioTrainingCreator.GUI.ViewModels.MainWindowViewModels
             }
         }
 
-        private MainWindowViewModel() : base("RadioTrainingCreator")
+        public MainWindowViewModel() : base("RadioTrainingCreator")
         {
-
+            ContentVM = new ContentViewModel();
         }
 
         #endregion
+
+        public ContentViewModel ContentVM { get; set; }
 
         /// <summary>
         /// Opens the RadioTraining

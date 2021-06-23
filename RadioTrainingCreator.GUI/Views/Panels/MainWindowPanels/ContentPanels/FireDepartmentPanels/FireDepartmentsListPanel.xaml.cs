@@ -9,7 +9,7 @@ namespace RadioTrainingCreator.GUI.Views.Panels.MainWindowPanels.ContentPanels.F
     {
         public FireDepartmentsListPanel()
         {
-            InitializeComponent();
+            InitializeComponent(); 
         }
     }
 }

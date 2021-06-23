@@ -11,6 +11,7 @@
                 <ResourceDictionary Source="pack://application:,,,/RadioTrainingCreator.GUI;component/Styles/Controls/Default/ButtonStyles.xaml"/>
                 
                 <ResourceDictionary Source="pack://application:,,,/RadioTrainingCreator.GUI;component/Styles/Controls/Custom/NavigationStyles.xaml"/>
+                <ResourceDictionary Source="pack://application:,,,/RadioTrainingCreator.GUI;component/Styles/Controls/Custom/ContentStyles/PageStyles.xaml"/>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>

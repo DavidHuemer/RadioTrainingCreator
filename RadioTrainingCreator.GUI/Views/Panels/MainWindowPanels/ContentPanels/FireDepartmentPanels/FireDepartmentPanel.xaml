@@ -15,5 +15,6 @@
         </Grid.ColumnDefinitions>
 
         <local:FireDepartmentsListPanel DataContext="{Binding }"/>
+        <local:FireDepartmentEditor DataContext="{Binding FireDepartmentEditor}" Grid.Column="1"/>
     </Grid>
 </UserControl>

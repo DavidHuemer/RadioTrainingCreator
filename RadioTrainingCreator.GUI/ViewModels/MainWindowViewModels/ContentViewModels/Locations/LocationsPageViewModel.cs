@@ -8,5 +8,10 @@ namespace RadioTrainingCreator.GUI.ViewModels.MainWindowViewModels.ContentViewMo
         {
 
         }
+
+        public override void DoAdd()
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }

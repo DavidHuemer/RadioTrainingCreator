@@ -10,5 +10,10 @@ namespace RadioTrainingCreator.GUI.ViewModels.MainWindowViewModels.ContentViewMo
         {
             FireDepartmentEditor = new FireDepartmentEditorViewModel();
         }
+
+        public override void DoAdd()
+        {
+            FireDepartmentEditor.Add();
+        }
     }
 }

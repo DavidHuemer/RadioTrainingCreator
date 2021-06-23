@@ -4,9 +4,11 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:RadioTrainingCreator.GUI.Views.Panels.MainWindowPanels.ContentPanels.FireDepartmentPanels"
+             xmlns:fireDepartmentVms="clr-namespace:RadioTrainingCreator.GUI.ViewModels.MainWindowViewModels.ContentViewModels.FireDepartments"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+             d:DesignHeight="450" d:DesignWidth="800"
+             d:DataContext="{d:DesignInstance Type=fireDepartmentVms:FireDepartmentsPageViewModel}">
     <Grid>
-            
+        
     </Grid>
 </UserControl>

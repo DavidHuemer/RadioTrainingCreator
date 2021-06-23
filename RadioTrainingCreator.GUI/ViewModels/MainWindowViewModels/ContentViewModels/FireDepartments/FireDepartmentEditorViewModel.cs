@@ -4,5 +4,7 @@ namespace RadioTrainingCreator.GUI.ViewModels.MainWindowViewModels.ContentViewMo
 {
     public class FireDepartmentEditorViewModel : EditorViewModel
     {
+        public string RadioCallName { get; set; } = "";
+        public string Name { get; set; } = "";
     }
 }

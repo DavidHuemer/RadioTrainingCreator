@@ -15,9 +15,6 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
-        <StackPanel Background="LightGray" Orientation="Horizontal">
-            <customButtons:NavigationButton DataContext="{Binding FireDepartmentsPage}"/>
-            <customButtons:NavigationButton DataContext="{Binding LocationsPage}"/>
-        </StackPanel>
+        <local:NavigationPanel DataContext="{Binding }"/>
     </Grid>
 </UserControl>

@@ -1,0 +1,38 @@
+﻿<UserControl x:Class="RadioTrainingCreator.GUI.Views.Panels.MainWindowPanels.ContentPanels.FireDepartmentPanels.FireDepartmentsListPanel"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:RadioTrainingCreator.GUI.Views.Panels.MainWindowPanels.ContentPanels.FireDepartmentPanels"
+             xmlns:fireDepartmentVms="clr-namespace:RadioTrainingCreator.GUI.ViewModels.MainWindowViewModels.ContentViewModels.FireDepartments"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="200"
+             d:DataContext="{d:DesignInstance Type=fireDepartmentVms:FireDepartmentsPageViewModel}">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="52"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="100"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <Label Content="Florian:"/>
+            <ComboBox Grid.Column="1"/>
+
+            <Button Content="Feuerwehr hinzufügen"
+                    Grid.Row="1" Grid.ColumnSpan="2"/>
+        </Grid>
+        
+        <ListBox ItemsSource="{Binding CurrentRadioTraining.FireDepartments}"
+                 Grid.Row="1"/>
+    </Grid>
+</UserControl>

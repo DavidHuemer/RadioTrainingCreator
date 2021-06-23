@@ -103,6 +103,9 @@
     <Compile Include="Views\Panels\MainWindowPanels\ContentPanels\FireDepartmentPanels\FireDepartmentPanel.xaml.cs">
       <DependentUpon>FireDepartmentPanel.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\Panels\MainWindowPanels\ContentPanels\FireDepartmentPanels\FireDepartmentsListPanel.xaml.cs">
+      <DependentUpon>FireDepartmentsListPanel.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Panels\MainWindowPanels\ContentPanels\LocationPanels\LocationsPanel.xaml.cs">
       <DependentUpon>LocationsPanel.xaml</DependentUpon>
     </Compile>
@@ -152,6 +155,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\Panels\MainWindowPanels\ContentPanels\FireDepartmentPanels\FireDepartmentPanel.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Panels\MainWindowPanels\ContentPanels\FireDepartmentPanels\FireDepartmentsListPanel.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -1,5 +1,4 @@
-﻿using RadioTrainingCreator.GUI.Views.Controls.Custom.Buttons;
-using System;
+﻿using System;
 using System.Globalization;
 using System.Windows.Data;
 
@@ -12,8 +11,7 @@ namespace RadioTrainingCreator.GUI.Converter
             if (value[0] == null || value[1] == null)
                 return false;
 
-            var navButton = value[1] as NavigationButton;
-            return value[0] == navButton.DataContext;
+            return value[0] == value[1];
         }
 
         public object[] ConvertBack(object value, Type[] targetTypes, object parameter, CultureInfo culture)

@@ -30,7 +30,8 @@
                             HorizontalAlignment="Right" DockPanel.Dock="Right"/>
                     <Button Content="Speichern"
                             HorizontalAlignment="Right" DockPanel.Dock="Right"
-                            Margin="0,0,10,0"/>
+                            Margin="0,0,10,0"
+                            Command="{Binding Save}"/>
                 </DockPanel>
             </StackPanel>
         </ScrollViewer>    

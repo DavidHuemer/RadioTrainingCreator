@@ -6,13 +6,18 @@
              xmlns:local="clr-namespace:RadioTrainingCreator.GUI.Views.Panels.WelcomeWindowPanels"
              xmlns:openProjectVms="clr-namespace:RadioTrainingCreator.GUI.ViewModels.WelcomeViewModels.OpenProjectViewModels"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+             d:DesignHeight="640" d:DesignWidth="300">
 
     <UserControl.DataContext>
         <openProjectVms:OpenProjectViewModel/>
     </UserControl.DataContext>
 
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="40"/>
+        </Grid.RowDefinitions>
+        
         <ListBox ItemsSource="{Binding RecentlyOpenedProjects}"
                  SelectedItem="{Binding SelectedRecentlyOpenedProject}">
             <ListBox.ItemTemplate>
@@ -24,5 +29,10 @@
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
+
+        <Button Content="Öffnen" 
+                Grid.Row="1" HorizontalAlignment="Right"
+                VerticalAlignment="Center"
+                Command="{Binding OpenProject}"/>
     </Grid>
 </UserControl>

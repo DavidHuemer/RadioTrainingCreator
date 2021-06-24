@@ -98,7 +98,6 @@
     <Compile Include="Services\Services\WindowServices\WindowServiceHandler.cs" />
     <Compile Include="ViewModels\Basics\BaseViewModel.cs" />
     <Compile Include="ViewModels\Basics\DataWindowViewModel.cs" />
-    <Compile Include="ViewModels\Basics\EditorViewModel.cs" />
     <Compile Include="ViewModels\Basics\EditorViewModels\EditorViewModel.cs" />
     <Compile Include="ViewModels\Basics\EditorViewModels\RadioTrainingEditorViewModel.cs" />
     <Compile Include="ViewModels\Basics\PageViewModel.cs" />

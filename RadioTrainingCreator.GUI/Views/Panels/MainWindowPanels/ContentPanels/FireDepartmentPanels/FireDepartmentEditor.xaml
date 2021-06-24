@@ -11,9 +11,8 @@
              d:DataContext="{d:DesignInstance Type=fireDepartmentVms:FireDepartmentEditorViewModel}">
     <UserControl.Resources>
         <GridLength x:Key="LineHeight">36</GridLength>
-        <BooleanToVisibilityConverter x:Key="VisibleIfTrueConverter" />
     </UserControl.Resources>
-    <Grid Visibility="{Binding Path=IsVisible, Converter={StaticResource VisibleIfTrueConverter}}">
+    <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="140"/>
             <ColumnDefinition Width="*"/>

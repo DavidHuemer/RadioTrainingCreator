@@ -18,9 +18,16 @@
     <Grid>
         <ScrollViewer VerticalScrollBarVisibility="Auto">
             <StackPanel>
-                <Label Content="FF Tolleterau"/>
                 <ContentControl Content="{Binding }" 
                                 Grid.Row="1"/>
+
+                <DockPanel>
+                    <Button Content="Abbrechen"
+                            HorizontalAlignment="Right" DockPanel.Dock="Right"/>
+                    <Button Content="Speichern"
+                            HorizontalAlignment="Right" DockPanel.Dock="Right"
+                            Margin="0,0,10,0"/>
+                </DockPanel>
             </StackPanel>
         </ScrollViewer>    
     </Grid>

@@ -16,7 +16,13 @@ namespace RadioTrainingCreator.GUI.ViewModels.MainWindowViewModels.ContentViewMo
 
         protected override void CreateNew()
         {
-            throw new System.NotImplementedException();
+            var newFireDepartment = new FireDepartment
+            {
+                RadioCallName = RadioCallName,
+                Name = Name,
+            };
+
+            CurrentOpenedProject.Instance.RadioTraining.FireDepartments.Add(newFireDepartment);
         }
 
         protected override void UpdateCurrent()

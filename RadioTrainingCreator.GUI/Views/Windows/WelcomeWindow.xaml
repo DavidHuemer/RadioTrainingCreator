@@ -7,21 +7,29 @@
         xmlns:welcomeViewModels="clr-namespace:RadioTrainingCreator.GUI.ViewModels.WelcomeViewModels"
         xmlns:welcomePanels="clr-namespace:RadioTrainingCreator.GUI.Views.Panels.WelcomeWindowPanels"
         mc:Ignorable="d"
-        Title="{Binding Title}" Height="450" Width="800"
+        Title="{Binding Title}" Height="640" Width="1000"
         WindowStartupLocation="CenterScreen">
     <Window.DataContext>
         <welcomeViewModels:WelcomeWindowViewModel/>
     </Window.DataContext>
-    <Grid>
+    <Grid Margin="10 ">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="4*"/>
+            <ColumnDefinition Width="50"/>
             <ColumnDefinition Width="6*"/>
         </Grid.ColumnDefinitions>
 
-        <welcomePanels:RecentlyOpenedPanel Grid.Column="0"
+        <Label Content="Zuletzt geöffnete Funkübungen"/>
+        <welcomePanels:RecentlyOpenedPanel Grid.Row="1" Grid.Column="0"
                                            DataContext="{Binding OpenProjectViewModel}"/>
 
-        <welcomePanels:NewProjectPanel Grid.Column="1"
+        <Label Content="Neue Funkübung erstellen" Grid.Column="2"/>
+        <welcomePanels:NewProjectPanel Grid.Row="1" Grid.Column="2"
                                        DataContext="{Binding NewProjectViewModel.DataViewModel}"/>
     </Grid>
 </Window>

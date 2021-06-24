@@ -12,6 +12,16 @@
     <Window.DataContext>
         <welcomeViewModels:WelcomeWindowViewModel/>
     </Window.DataContext>
+
+    <Window.Resources>
+        <Style x:Key="WelcomeHeader" TargetType="Label">
+            <Setter Property="Background" Value="LightGray"/>
+            <Setter Property="FontSize" Value="15"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+        </Style>
+    </Window.Resources>
     <Grid Margin="10 ">
         <Grid.RowDefinitions>
             <RowDefinition Height="40"/>
@@ -24,11 +34,12 @@
             <ColumnDefinition Width="6*"/>
         </Grid.ColumnDefinitions>
 
-        <Label Content="Zuletzt geöffnete Funkübungen"/>
+        <Label Content="Zuletzt geöffnete Funkübungen" Style="{StaticResource WelcomeHeader}"/>
         <welcomePanels:RecentlyOpenedPanel Grid.Row="1" Grid.Column="0"
                                            DataContext="{Binding OpenProjectViewModel}"/>
 
-        <Label Content="Neue Funkübung erstellen" Grid.Column="2"/>
+        <Label Content="Neue Funkübung erstellen" Grid.Column="2" 
+               Style="{StaticResource WelcomeHeader}"/>
         <welcomePanels:NewProjectPanel Grid.Row="1" Grid.Column="2"
                                        DataContext="{Binding NewProjectViewModel.DataViewModel}"/>
     </Grid>

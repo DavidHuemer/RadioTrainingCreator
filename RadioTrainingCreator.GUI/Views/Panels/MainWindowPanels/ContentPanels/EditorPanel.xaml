@@ -4,19 +4,23 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:RadioTrainingCreator.GUI.Views.Panels.MainWindowPanels.ContentPanels"
+             xmlns:vms="clr-namespace:RadioTrainingCreator.GUI.ViewModels.Basics"
              xmlns:fireDepartmentVms="clr-namespace:RadioTrainingCreator.GUI.ViewModels.MainWindowViewModels.ContentViewModels.FireDepartments"
              xmlns:fireDepartmentPanels="clr-namespace:RadioTrainingCreator.GUI.Views.Panels.MainWindowPanels.ContentPanels.FireDepartmentPanels"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+             d:DesignHeight="450" d:DesignWidth="800"
+             d:DataContext="{d:DesignInstance Type=vms:EditorViewModel}">
 
     <UserControl.Resources>
+        <BooleanToVisibilityConverter x:Key="VisibleIfTrueConverter" />
         <DataTemplate DataType="{x:Type fireDepartmentVms:FireDepartmentEditorViewModel}">
             <fireDepartmentPanels:FireDepartmentEditor/>
         </DataTemplate>
     </UserControl.Resources>
     
     <Grid>
-        <ScrollViewer VerticalScrollBarVisibility="Auto">
+        <ScrollViewer Visibility="{Binding Path=IsVisible, Converter={StaticResource VisibleIfTrueConverter}}" 
+                      VerticalScrollBarVisibility="Auto">
             <StackPanel>
                 <ContentControl Content="{Binding }" 
                                 Grid.Row="1"/>

@@ -14,8 +14,9 @@ namespace RadioTrainingCreator.GUI.ViewModels.WelcomeViewModels
         public WelcomeWindowViewModel() : base("Wilkommen zum Funkübung Ersteller")
         {
             NewProjectViewModel = new NewProjectViewModel(new FileDialogService());
-            NewProjectViewModel.Init(CloseWindow);
+            NewProjectViewModel.InitClose(CloseWindow);
             OpenProjectViewModel = new OpenProjectViewModel();
+            OpenProjectViewModel.InitClose(CloseWindow);
         }
     }
 }

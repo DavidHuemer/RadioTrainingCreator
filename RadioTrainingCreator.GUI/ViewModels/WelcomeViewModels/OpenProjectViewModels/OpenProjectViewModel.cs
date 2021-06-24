@@ -1,9 +1,12 @@
 ﻿using MVVM.Tools;
 using RadioTrainingCreator.Data;
 using RadioTrainingCreator.Data.Files;
+using RadioTrainingCreator.GUI.Services.FileServices;
 using RadioTrainingCreator.GUI.Services.Interfaces;
+using RadioTrainingCreator.GUI.Services.Interfaces.FileInterfaces;
 using RadioTrainingCreator.GUI.Services.Services.WindowServices;
 using RadioTrainingCreator.GUI.ViewModels.Basics;
+using RadioTrainingCreator.GUI.ViewModels.MainWindowViewModels;
 using RadioTrainingCreator.Handler.FilesHandler;
 using RadioTrainingCreator.Handler.Services.Interfaces.FileInterfaces;
 using RadioTrainingCreator.Handler.Services.Services.FileServices;
@@ -16,21 +19,25 @@ namespace RadioTrainingCreator.GUI.ViewModels.WelcomeViewModels.OpenProjectViewM
 {
     public class OpenProjectViewModel : BaseViewModel
     {
+        #region Private variables
+
         private readonly RecentlyOpenedFilesHandler RecentlyOpenedFilesHandler;
         private readonly IWindowService windowService;
+        private readonly IFileDialogService fileDialogService;
 
-        public OpenProjectViewModel(IRecentlyOpenedFilesService recentlyOpenedFilesService = null)
+        #endregion
+
+        public OpenProjectViewModel(IRecentlyOpenedFilesService recentlyOpenedFilesService, 
+            IFileDialogService fileDialogService)
         {
-            if (recentlyOpenedFilesService == null)
-                recentlyOpenedFilesService = new RecentlyOpenedFilesService();
-
             windowService = WindowServiceHandler.GetCorrectWindowService();
-
+            this.fileDialogService = fileDialogService;
             RecentlyOpenedFilesHandler = new RecentlyOpenedFilesHandler(recentlyOpenedFilesService);
+
             RecentlyOpenedProjects = RecentlyOpenedFilesHandler.GetRecentlyOpenedFiles();
         }
 
-        public OpenProjectViewModel() : this(null)
+        public OpenProjectViewModel() : this(new RecentlyOpenedFilesService(), new FileDialogService())
         {
 
         }
@@ -39,7 +46,6 @@ namespace RadioTrainingCreator.GUI.ViewModels.WelcomeViewModels.OpenProjectViewM
         #region Properties
 
         public List<RecentlyOpenedProject> RecentlyOpenedProjects { get; set; } = new List<RecentlyOpenedProject>();
-
         
         private RecentlyOpenedProject selectedRecentlyOpenedProject = null;
         public RecentlyOpenedProject SelectedRecentlyOpenedProject
@@ -63,7 +69,9 @@ namespace RadioTrainingCreator.GUI.ViewModels.WelcomeViewModels.OpenProjectViewM
 
         public void DoOpenProject()
         {
-            
+            Console.WriteLine("Open Project clicked");
+            var radioTrainingFilePath = fileDialogService.GetRadioTrainingFile();
+            OpenProjectAndClose(radioTrainingFilePath);
         }
 
         #endregion
@@ -113,8 +121,26 @@ namespace RadioTrainingCreator.GUI.ViewModels.WelcomeViewModels.OpenProjectViewM
 
         public void OpenProjectAndClose(string path, RadioTraining radioTraining)
         {
-            MainWindowViewModels.MainWindowViewModel.Instance.Open(path, radioTraining);
-            windowService.Open(MainWindowViewModels.MainWindowViewModel.Instance);
+            MainWindowViewModel.Instance.Open(path, radioTraining);
+            windowService.Open(MainWindowViewModel.Instance);
+        }
+
+        public void OpenProjectAndClose(string path)
+        {
+            if (path == null)
+                return;
+
+            try
+            {
+                var radioTraining = RadioTrainingProjectHandler.LoadRadioTraining(path);
+                MainWindowViewModel.Instance.Open(path, radioTraining);
+                windowService.Open(MainWindowViewModel.Instance);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                MessageService.ShowWarning("Fehler beim öffnen", "Konnte die Funkübung nicht öffnen");
+            }
         }
     }
 }

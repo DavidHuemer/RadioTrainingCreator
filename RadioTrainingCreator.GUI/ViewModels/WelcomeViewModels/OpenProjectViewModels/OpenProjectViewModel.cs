@@ -17,7 +17,7 @@ using System.Windows;
 
 namespace RadioTrainingCreator.GUI.ViewModels.WelcomeViewModels.OpenProjectViewModels
 {
-    public class OpenProjectViewModel : BaseViewModel
+    public class OpenProjectViewModel : CloseAbleViewModel
     {
         #region Private variables
 
@@ -123,6 +123,7 @@ namespace RadioTrainingCreator.GUI.ViewModels.WelcomeViewModels.OpenProjectViewM
         {
             MainWindowViewModel.Instance.Open(path, radioTraining);
             windowService.Open(MainWindowViewModel.Instance);
+            Close();
         }
 
         public void OpenProjectAndClose(string path)
@@ -135,6 +136,7 @@ namespace RadioTrainingCreator.GUI.ViewModels.WelcomeViewModels.OpenProjectViewM
                 var radioTraining = RadioTrainingProjectHandler.LoadRadioTraining(path);
                 MainWindowViewModel.Instance.Open(path, radioTraining);
                 windowService.Open(MainWindowViewModel.Instance);
+                Close();
             }
             catch (Exception ex)
             {

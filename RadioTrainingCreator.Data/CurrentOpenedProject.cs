@@ -1,4 +1,5 @@
 ﻿using RadioTrainingCreator.Data.Files;
+using System;
 
 namespace RadioTrainingCreator.Data
 {
@@ -29,6 +30,8 @@ namespace RadioTrainingCreator.Data
 
         #region Properties
 
+        public event EventHandler<EventArgs> CurrentProjectChanged;
+
         /// <summary>
         /// The current opened project
         /// </summary>
@@ -52,6 +55,7 @@ namespace RadioTrainingCreator.Data
         {
             RadioTraining = radioTraining;
             OpenedProjectFile = path;
+            CurrentProjectChanged?.Invoke(this, new EventArgs());
         }
 
         /// <summary>

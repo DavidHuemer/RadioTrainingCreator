@@ -1,5 +1,6 @@
 ﻿using MVVM.Tools;
 using RadioTrainingCreator.Data;
+using System;
 
 namespace RadioTrainingCreator.GUI.ViewModels.Basics
 {
@@ -11,6 +12,12 @@ namespace RadioTrainingCreator.GUI.ViewModels.Basics
         public PageViewModel(string displayName)
         {
             DisplayName = displayName;
+            CurrentRadioTraining = CurrentOpenedProject.Instance.RadioTraining;
+            CurrentOpenedProject.Instance.CurrentProjectChanged += CurrentProject_Changed;
+        }
+
+        private void CurrentProject_Changed(object sender, EventArgs e)
+        {
             CurrentRadioTraining = CurrentOpenedProject.Instance.RadioTraining;
         }
 
@@ -24,9 +31,8 @@ namespace RadioTrainingCreator.GUI.ViewModels.Basics
         #region Commands
 
         public RelayCommand<PageViewModel> Add => new RelayCommand<PageViewModel>(o => { DoAdd(); }, o => true);
+        public abstract void DoAdd();
 
         #endregion
-
-        public abstract void DoAdd();
     }
 }

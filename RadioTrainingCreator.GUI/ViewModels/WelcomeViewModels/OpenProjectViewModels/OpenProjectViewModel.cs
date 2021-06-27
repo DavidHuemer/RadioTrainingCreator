@@ -2,10 +2,7 @@
 using RadioTrainingCreator.Data;
 using RadioTrainingCreator.Data.Files;
 using RadioTrainingCreator.GUI.Services.FileServices;
-using RadioTrainingCreator.GUI.Services.Interfaces;
 using RadioTrainingCreator.GUI.Services.Interfaces.FileInterfaces;
-using RadioTrainingCreator.GUI.Services.Services.WindowServices;
-using RadioTrainingCreator.GUI.ViewModels.Basics;
 using RadioTrainingCreator.GUI.ViewModels.MainWindowViewModels;
 using RadioTrainingCreator.Handler.FilesHandler;
 using RadioTrainingCreator.Handler.Services.Interfaces.FileInterfaces;
@@ -17,20 +14,20 @@ using System.Windows;
 
 namespace RadioTrainingCreator.GUI.ViewModels.WelcomeViewModels.OpenProjectViewModels
 {
-    public class OpenProjectViewModel : CloseAbleViewModel
+    public class OpenProjectViewModel : WelcomeWindowPanelViewModel
     {
         #region Private variables
 
         private readonly RecentlyOpenedFilesHandler RecentlyOpenedFilesHandler;
-        private readonly IWindowService windowService;
         private readonly IFileDialogService fileDialogService;
 
         #endregion
 
+        #region Constructor
+
         public OpenProjectViewModel(IRecentlyOpenedFilesService recentlyOpenedFilesService, 
             IFileDialogService fileDialogService)
         {
-            windowService = WindowServiceHandler.GetCorrectWindowService();
             this.fileDialogService = fileDialogService;
             RecentlyOpenedFilesHandler = new RecentlyOpenedFilesHandler(recentlyOpenedFilesService);
 
@@ -42,6 +39,7 @@ namespace RadioTrainingCreator.GUI.ViewModels.WelcomeViewModels.OpenProjectViewM
 
         }
 
+        #endregion
 
         #region Properties
 
@@ -62,17 +60,21 @@ namespace RadioTrainingCreator.GUI.ViewModels.WelcomeViewModels.OpenProjectViewM
 
         #region Commands
 
-        public RelayCommand<string> OpenProject => new RelayCommand<string>(x =>
+        #region Browse
+
+        public RelayCommand<string> BrowseFiles => new RelayCommand<string>(x =>
         {
-            DoOpenProject();
+            DoBrowse();
         }, x => true);
 
-        public void DoOpenProject()
+        public void DoBrowse()
         {
             Console.WriteLine("Open Project clicked");
             var radioTrainingFilePath = fileDialogService.GetRadioTrainingFile();
             OpenProjectAndClose(radioTrainingFilePath);
         }
+
+        #endregion
 
         #endregion
 
@@ -88,7 +90,7 @@ namespace RadioTrainingCreator.GUI.ViewModels.WelcomeViewModels.OpenProjectViewM
             try
             {
                 var projectToOpen = RadioTrainingProjectHandler.LoadRadioTraining(recentlyOpenedProject.Path);
-                OpenProjectAndClose(recentlyOpenedProject.Path, projectToOpen);
+                OpenProject(recentlyOpenedProject.Path, projectToOpen);
             }
             catch(FileNotFoundException fileNotFoundEx)
             {
@@ -122,8 +124,6 @@ namespace RadioTrainingCreator.GUI.ViewModels.WelcomeViewModels.OpenProjectViewM
         public void OpenProjectAndClose(string path, RadioTraining radioTraining)
         {
             MainWindowViewModel.Instance.Open(path, radioTraining);
-            windowService.Open(MainWindowViewModel.Instance);
-            Close();
         }
 
         public void OpenProjectAndClose(string path)
@@ -134,9 +134,7 @@ namespace RadioTrainingCreator.GUI.ViewModels.WelcomeViewModels.OpenProjectViewM
             try
             {
                 var radioTraining = RadioTrainingProjectHandler.LoadRadioTraining(path);
-                MainWindowViewModel.Instance.Open(path, radioTraining);
-                windowService.Open(MainWindowViewModel.Instance);
-                Close();
+                OpenProject(path, radioTraining);
             }
             catch (Exception ex)
             {

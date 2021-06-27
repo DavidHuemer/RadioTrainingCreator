@@ -113,6 +113,7 @@
     <Compile Include="ViewModels\WelcomeViewModels\NewProjectViewModels\NewProjectDataViewModel.cs" />
     <Compile Include="ViewModels\WelcomeViewModels\NewProjectViewModels\NewProjectViewModel.cs" />
     <Compile Include="ViewModels\WelcomeViewModels\OpenProjectViewModels\OpenProjectViewModel.cs" />
+    <Compile Include="ViewModels\WelcomeViewModels\WelcomeWindowPanelViewModel.cs" />
     <Compile Include="ViewModels\WelcomeViewModels\WelcomeWindowViewModel.cs" />
     <Compile Include="Views\Controls\Custom\Buttons\NavigationButton.cs" />
     <Compile Include="Views\Controls\Default\ExButton.cs" />

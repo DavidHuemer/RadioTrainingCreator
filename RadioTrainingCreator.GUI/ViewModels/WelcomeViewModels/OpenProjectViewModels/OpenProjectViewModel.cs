@@ -1,9 +1,7 @@
 ﻿using MVVM.Tools;
-using RadioTrainingCreator.Data;
 using RadioTrainingCreator.Data.Files;
 using RadioTrainingCreator.GUI.Services.FileServices;
 using RadioTrainingCreator.GUI.Services.Interfaces.FileInterfaces;
-using RadioTrainingCreator.GUI.ViewModels.MainWindowViewModels;
 using RadioTrainingCreator.Handler.FilesHandler;
 using RadioTrainingCreator.Handler.Services.Interfaces.FileInterfaces;
 using RadioTrainingCreator.Handler.Services.Services.FileServices;
@@ -71,12 +69,14 @@ namespace RadioTrainingCreator.GUI.ViewModels.WelcomeViewModels.OpenProjectViewM
         {
             Console.WriteLine("Open Project clicked");
             var radioTrainingFilePath = fileDialogService.GetRadioTrainingFile();
-            OpenProjectAndClose(radioTrainingFilePath);
+            OpenBrowsedFile(radioTrainingFilePath);
         }
 
         #endregion
 
         #endregion
+
+        #region Open recently opened
 
         /// <summary>
         /// Opens the recently opened file
@@ -94,39 +94,55 @@ namespace RadioTrainingCreator.GUI.ViewModels.WelcomeViewModels.OpenProjectViewM
             }
             catch(FileNotFoundException fileNotFoundEx)
             {
-                Console.WriteLine(fileNotFoundEx.Message);
-                var result = MessageService.Show("Fehler beim laden", 
-                    $"Die Datei {recentlyOpenedProject.Path} ist nicht vorhanden, " +
-                    $"soll diese Datein von der Liste der zuletzt geöffneten Project entfernt werden?", 
-                    MessageBoxButton.YesNo, MessageBoxImage.Question, MessageBoxResult.Yes);
-
-                if(result == MessageBoxResult.Yes)
-                {
-                    RecentlyOpenedFilesHandler.RemoveRecentlyOpenedFile(recentlyOpenedProject);
-                }
+                ShowFileNotFoundException(recentlyOpenedProject, fileNotFoundEx);
 
             }
-            catch(InvalidDataException invalidDataExpection)
+            catch (InvalidDataException invalidDataExpection)
             {
-                Console.WriteLine(invalidDataExpection.Message);
-                var result = MessageService.Show("Fehler beim laden",
-                    $"Die Datei {recentlyOpenedProject.Path} konnte nicht geladen werden, " +
-                    $"soll diese Datein von der Liste der zuletzt geöffneten Project entfernt werden?",
-                    MessageBoxButton.YesNo, MessageBoxImage.Question, MessageBoxResult.Yes);
-
-                if (result == MessageBoxResult.Yes)
-                {
-                    RecentlyOpenedFilesHandler.RemoveRecentlyOpenedFile(recentlyOpenedProject);
-                }
+                ShowInvalidDataException(recentlyOpenedProject, invalidDataExpection);
             }
         }
 
-        public void OpenProjectAndClose(string path, RadioTraining radioTraining)
+        #region Show exceptions
+
+        private void ShowFileNotFoundException(RecentlyOpenedProject recentlyOpenedProject, FileNotFoundException fileNotFoundEx)
         {
-            MainWindowViewModel.Instance.Open(path, radioTraining);
+            Console.WriteLine(fileNotFoundEx.Message);
+            var result = MessageService.Show("Fehler beim laden",
+                $"Die Datei {recentlyOpenedProject.Path} ist nicht vorhanden, " +
+                $"soll diese Datein von der Liste der zuletzt geöffneten Project entfernt werden?",
+                MessageBoxButton.YesNo, MessageBoxImage.Question, MessageBoxResult.Yes);
+
+            if (result == MessageBoxResult.Yes)
+            {
+                RecentlyOpenedFilesHandler.RemoveRecentlyOpenedFile(recentlyOpenedProject);
+            }
+        }
+        private void ShowInvalidDataException(RecentlyOpenedProject recentlyOpenedProject, InvalidDataException invalidDataExpection)
+        {
+            Console.WriteLine(invalidDataExpection.Message);
+            var result = MessageService.Show("Fehler beim laden",
+                $"Die Datei {recentlyOpenedProject.Path} konnte nicht geladen werden, " +
+                $"soll diese Datein von der Liste der zuletzt geöffneten Project entfernt werden?",
+                MessageBoxButton.YesNo, MessageBoxImage.Question, MessageBoxResult.Yes);
+
+            if (result == MessageBoxResult.Yes)
+            {
+                RecentlyOpenedFilesHandler.RemoveRecentlyOpenedFile(recentlyOpenedProject);
+            }
         }
 
-        public void OpenProjectAndClose(string path)
+        #endregion
+
+        #endregion
+
+        #region Open browsed file
+
+        /// <summary>
+        /// Opens the file that was selected by the file browser
+        /// </summary>
+        /// <param name="path">The path of the file that was selected by the file browser</param>
+        public void OpenBrowsedFile(string path)
         {
             if (path == null)
                 return;
@@ -142,5 +158,7 @@ namespace RadioTrainingCreator.GUI.ViewModels.WelcomeViewModels.OpenProjectViewM
                 MessageService.ShowWarning("Fehler beim öffnen", "Konnte die Funkübung nicht öffnen");
             }
         }
+
+        #endregion
     }
 }

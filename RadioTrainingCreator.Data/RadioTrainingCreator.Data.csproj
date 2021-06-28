@@ -51,6 +51,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CurrentOpenedProject.cs" />
+    <Compile Include="Extensions\StringExtensions.cs" />
     <Compile Include="Files\CreatedRadioTraining.cs" />
     <Compile Include="Files\RecentlyOpenedProject.cs" />
     <Compile Include="FireDepartment.cs" />

@@ -5,7 +5,7 @@ using System.ComponentModel;
 namespace RadioTrainingCreator.Data
 {
     [Serializable]
-    public class RadioTraining : INotifyPropertyChanged
+    public class RadioTraining
     {
         public string Name { get; set; } = "";
         public string Author { get; set; } = "";
@@ -13,7 +13,5 @@ namespace RadioTrainingCreator.Data
 
         public ObservableCollection<FireDepartment> FireDepartments { get; set; } = new ObservableCollection<FireDepartment>();
         public FireDepartment Florian { get; set; } = null;
-
-        public event PropertyChangedEventHandler PropertyChanged;
     }
 }

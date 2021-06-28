@@ -25,12 +25,16 @@
         </Grid.RowDefinitions>
 
         <Label Content="Funkrufname"/>
-        <xceed:WatermarkTextBox Text="{Binding RadioCallName}" 
+        <xceed:WatermarkTextBox Text="{Binding RadioCallName}"
+                                Watermark="(Kommando, Pumpe, Florian, etc...)"
+                                KeepWatermarkOnGotFocus="True"
                                 Grid.Column="1"/>
 
         <Label Content="Name"
                Grid.Row="1"/>
         <xceed:WatermarkTextBox Text="{Binding Name}"
+                                Watermark="Name der Feuerwehr"
+                                KeepWatermarkOnGotFocus="True"
                                 Grid.Column="1" Grid.Row="1"/>
     </Grid>
 </UserControl>

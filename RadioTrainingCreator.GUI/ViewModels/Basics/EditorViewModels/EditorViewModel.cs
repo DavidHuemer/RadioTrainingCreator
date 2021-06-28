@@ -9,6 +9,8 @@ namespace RadioTrainingCreator.GUI.ViewModels.Basics.EditorViewModels
     {
         public bool IsVisible { get; set; } = false;
 
+        public bool CanSave { get; set; } = false;
+
         /// <summary>
         /// Should be called when the editor should create a new "item"
         /// </summary>
@@ -32,13 +34,15 @@ namespace RadioTrainingCreator.GUI.ViewModels.Basics.EditorViewModels
 
         #region Save
 
-        public RelayCommand<string> Save => new RelayCommand<string>(o => { DoSave(); }, o => true);
+        public RelayCommand<string> Save => new RelayCommand<string>(o => { DoSave(); }, o => CanSave);
 
         protected abstract void DoSave();
 
         #endregion
 
         #endregion
+
+        protected abstract void UpdateCanSave();
 
         protected abstract void CreateNew();
         protected abstract void UpdateCurrent();

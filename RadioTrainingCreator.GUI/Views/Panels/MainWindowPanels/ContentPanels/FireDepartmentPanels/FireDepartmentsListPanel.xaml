@@ -26,7 +26,10 @@
             </Grid.RowDefinitions>
 
             <Label Content="Florian:"/>
-            <ComboBox Grid.Column="1"/>
+            <ComboBox ItemsSource="{Binding CurrentRadioTraining.FireDepartments}" 
+                      DisplayMemberPath="FullName"
+                      SelectedValue="{Binding CurrentRadioTraining.Florian}"
+                      Grid.Column="1"/>
 
             <Button Content="Feuerwehr hinzufügen"
                     Grid.Row="1" Grid.ColumnSpan="2"

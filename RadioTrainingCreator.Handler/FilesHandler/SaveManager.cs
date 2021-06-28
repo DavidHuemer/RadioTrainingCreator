@@ -25,7 +25,7 @@ namespace RadioTrainingCreator.Handler.FilesHandler
 
         }
 
-        public bool IsUnsaved { get; private set; }
+        public bool IsSaved { get; private set; }
 
         public void Save()
         {
@@ -33,7 +33,12 @@ namespace RadioTrainingCreator.Handler.FilesHandler
             var project = CurrentOpenedProject.Instance.RadioTraining;
 
             RadioTrainingProjectHandler.SaveRadioTraining(path, project);
-            IsUnsaved = false;
+            IsSaved = true;
+        }
+
+        public void Unsave()
+        {
+            IsSaved = false;
         }
     }
 }

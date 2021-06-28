@@ -1,4 +1,6 @@
-﻿namespace RadioTrainingCreator.Handler.FilesHandler
+﻿using RadioTrainingCreator.Data;
+
+namespace RadioTrainingCreator.Handler.FilesHandler
 {
     public class SaveManager
     {
@@ -21,6 +23,17 @@
         private SaveManager()
         {
 
+        }
+
+        public bool IsUnsaved { get; private set; }
+
+        public void Save()
+        {
+            string path = CurrentOpenedProject.Instance.OpenedProjectFile;
+            var project = CurrentOpenedProject.Instance.RadioTraining;
+
+            RadioTrainingProjectHandler.SaveRadioTraining(path, project);
+            IsUnsaved = false;
         }
     }
 }

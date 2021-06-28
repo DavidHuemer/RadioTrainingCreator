@@ -2,7 +2,6 @@
 using RadioTrainingCreator.Data.Files;
 using RadioTrainingCreator.GUI.Services.Interfaces.FileInterfaces;
 using RadioTrainingCreator.GUI.ViewModels.Basics;
-using RadioTrainingCreator.GUI.ViewModels.MainWindowViewModels;
 using RadioTrainingCreator.Handler.FilesHandler;
 using System;
 
@@ -21,6 +20,7 @@ namespace RadioTrainingCreator.GUI.ViewModels.WelcomeViewModels.NewProjectViewMo
             {
                 projectName = value;
                 UpdateFullPath();
+                UpdateCanCreate();
             }
         }
         public string ProjectFolder
@@ -29,11 +29,14 @@ namespace RadioTrainingCreator.GUI.ViewModels.WelcomeViewModels.NewProjectViewMo
             {
                 projectFolder = value;
                 UpdateFullPath();
+                UpdateCanCreate();
             }
         }
         public string FullPath { get; set; } = "";
         public string Author { get; set; } = "";
         public string Comment { get; set; } = "";
+
+        public bool CanCreate { get; set; } = false;
 
         #endregion
 
@@ -47,6 +50,8 @@ namespace RadioTrainingCreator.GUI.ViewModels.WelcomeViewModels.NewProjectViewMo
 
         #endregion
 
+        #region Init
+
         public NewProjectDataViewModel(IFileDialogService fileDialogService)
         {
             this.fileDialogService = fileDialogService;
@@ -56,6 +61,8 @@ namespace RadioTrainingCreator.GUI.ViewModels.WelcomeViewModels.NewProjectViewMo
         {
             this.projectCreatedCallback = projectCreatedCallback;
         }
+
+        #endregion+
 
         #region Commands
 
@@ -78,7 +85,7 @@ namespace RadioTrainingCreator.GUI.ViewModels.WelcomeViewModels.NewProjectViewMo
         public RelayCommand<string> CreateRadioTraining => new RelayCommand<string>(x =>
         {
             DoCreateRadioTraining();
-        }, x => true);
+        }, x => CanCreate);
 
         public void DoCreateRadioTraining()
         {
@@ -93,7 +100,7 @@ namespace RadioTrainingCreator.GUI.ViewModels.WelcomeViewModels.NewProjectViewMo
 
         #endregion
 
-        #region UpdateFullPath
+        #region Update methods
 
         /// <summary>
         /// Updates the full path
@@ -102,6 +109,18 @@ namespace RadioTrainingCreator.GUI.ViewModels.WelcomeViewModels.NewProjectViewMo
         {
             var path = FilePathHandler.CombineRadioTrainingPath(ProjectFolder, ProjectName);
             FullPath = path;
+        }
+
+        /// <summary>
+        /// Checks if the project can be created
+        /// </summary>
+        public void UpdateCanCreate()
+        {
+            bool isSomethingEmpty = string.IsNullOrWhiteSpace(ProjectName)
+                || string.IsNullOrWhiteSpace(ProjectFolder)
+                || string.IsNullOrWhiteSpace(FullPath);
+
+            CanCreate = !isSomethingEmpty;
         }
 
         #endregion

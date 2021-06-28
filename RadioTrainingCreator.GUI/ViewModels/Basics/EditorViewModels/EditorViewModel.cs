@@ -23,6 +23,11 @@ namespace RadioTrainingCreator.GUI.ViewModels.Basics.EditorViewModels
         /// </summary>
         public abstract void Clear();
 
+        /// <summary>
+        /// Hides the editor
+        /// </summary>
+        public void Hide() => IsVisible = false;
+
         #region Commands
 
         #region Save
@@ -33,9 +38,9 @@ namespace RadioTrainingCreator.GUI.ViewModels.Basics.EditorViewModels
 
         #endregion
 
+        #endregion
+
         protected abstract void CreateNew();
         protected abstract void UpdateCurrent();
-
-        #endregion
     }
 }

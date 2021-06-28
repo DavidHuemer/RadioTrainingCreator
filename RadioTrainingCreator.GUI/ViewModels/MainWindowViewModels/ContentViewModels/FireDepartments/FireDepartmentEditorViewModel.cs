@@ -23,6 +23,7 @@ namespace RadioTrainingCreator.GUI.ViewModels.MainWindowViewModels.ContentViewMo
             };
 
             CurrentOpenedProject.Instance.RadioTraining.FireDepartments.Add(newFireDepartment);
+            Hide();
         }
 
         protected override void UpdateCurrent()

@@ -12,7 +12,7 @@ namespace RadioTrainingCreator.GUI.ViewModels.Basics.EditorViewModels
         /// <summary>
         /// Should be called when the editor should create a new "item"
         /// </summary>
-        public virtual void Add()
+        public virtual void ShowCreateNew()
         {
             Clear();
             IsVisible = true;

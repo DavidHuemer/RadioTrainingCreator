@@ -62,6 +62,29 @@ namespace RadioTrainingCreator.GUI.ViewModels.MainWindowViewModels.MenuViewModel
 
         #endregion
 
+        #region Save Command
+
+        public RelayCommand<string> Save => new RelayCommand<string>(x =>
+        {
+            DoSave();
+        }, x => true);
+
+        public void DoSave()
+        {
+            try
+            {
+                SaveManager.Instance.Save();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                MessageService.ShowError("Fehler beim speichern",
+                    "Konnte das Projekt nicht speichern.");
+            }
+        }
+
+        #endregion
+
         #region Close Command
 
         public RelayCommand<string> Close => new RelayCommand<string>(x =>
@@ -95,10 +118,10 @@ namespace RadioTrainingCreator.GUI.ViewModels.MainWindowViewModels.MenuViewModel
                 var radioTraining = RadioTrainingProjectHandler.LoadRadioTraining(path);
                 MainWindowViewModel.Instance.Open(path, radioTraining);
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
-                MessageService.ShowWarning("Fehler beim öffnen","Konnte die Funkübung nicht öffnen");
+                MessageService.ShowWarning("Fehler beim öffnen", "Konnte die Funkübung nicht öffnen");
             }
         }
     }

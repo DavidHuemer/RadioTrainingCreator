@@ -15,6 +15,7 @@
         <MenuItem Header="Datei">
             <MenuItem Header="Neue Funkübung" Command="{Binding NewProject}"/>
             <MenuItem Header="Öffnen" Command="{Binding OpenProject}"/>
+            <MenuItem Header="Speichern" Command="{Binding Save}"/>
             <MenuItem Header="Schließen" Command="{Binding Close}"/>
         </MenuItem>
     </Menu>

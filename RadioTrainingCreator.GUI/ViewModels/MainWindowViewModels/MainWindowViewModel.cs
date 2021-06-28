@@ -2,6 +2,7 @@
 using RadioTrainingCreator.GUI.ViewModels.Basics;
 using RadioTrainingCreator.GUI.ViewModels.MainWindowViewModels.ContentViewModels;
 using RadioTrainingCreator.Handler;
+using System;
 
 namespace RadioTrainingCreator.GUI.ViewModels.MainWindowViewModels
 {
@@ -22,10 +23,15 @@ namespace RadioTrainingCreator.GUI.ViewModels.MainWindowViewModels
 
         public MainWindowViewModel() : base("RadioTrainingCreator")
         {
+            CurrentRadioTraining = CurrentOpenedProject.Instance.RadioTraining;
+            CurrentOpenedProject.Instance.CurrentProjectChanged += CurrentProject_Changed;
+
             ContentVM = new ContentViewModel();
         }
 
         #endregion
+
+        public RadioTraining CurrentRadioTraining { get; set; }
 
         public ContentViewModel ContentVM { get; set; }
 
@@ -47,6 +53,11 @@ namespace RadioTrainingCreator.GUI.ViewModels.MainWindowViewModels
         {
             CurrentOpenedProject.Instance.Init(radioTraining, path);
             HandlerLib.Instance.RecentlyOpenedFilesHandler.AddRecentlyOpenedFile(path);
+        }
+
+        private void CurrentProject_Changed(object sender, EventArgs e)
+        {
+            CurrentRadioTraining = CurrentOpenedProject.Instance.RadioTraining;
         }
     }
 }

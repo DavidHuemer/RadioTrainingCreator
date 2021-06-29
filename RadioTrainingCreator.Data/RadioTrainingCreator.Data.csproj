@@ -50,6 +50,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Basics\RadioTrainingObject.cs" />
     <Compile Include="CurrentOpenedProject.cs" />
     <Compile Include="Extensions\StringExtensions.cs" />
     <Compile Include="Files\CreatedRadioTraining.cs" />

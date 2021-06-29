@@ -90,6 +90,7 @@
     <Compile Include="Services\Services\FileServices\FileDialogService.cs" />
     <Compile Include="Services\Interfaces\FileInterfaces\IFileDialogService.cs" />
     <Compile Include="Services\Interfaces\IMessageService.cs" />
+    <Compile Include="Services\Services\FileServices\SaveService.cs" />
     <Compile Include="Services\Services\MessageServices\ConsoleMessageService.cs" />
     <Compile Include="Services\Services\MessageServices\MessageBoxMessageService.cs" />
     <Compile Include="Services\Services\MessageServices\MessageServiceHandler.cs" />

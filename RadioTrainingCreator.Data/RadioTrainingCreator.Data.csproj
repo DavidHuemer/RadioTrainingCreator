@@ -58,6 +58,7 @@
     <Compile Include="FireDepartment.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RadioTraining.cs" />
+    <Compile Include="RadioTrainingObjects\Location.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

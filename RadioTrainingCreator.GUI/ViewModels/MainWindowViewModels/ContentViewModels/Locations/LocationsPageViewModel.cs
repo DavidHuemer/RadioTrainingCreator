@@ -1,4 +1,4 @@
-﻿using RadioTrainingCreator.GUI.ViewModels.Basics;
+﻿using RadioTrainingCreator.GUI.ViewModels.Basics.PageViewModels;
 
 namespace RadioTrainingCreator.GUI.ViewModels.MainWindowViewModels.ContentViewModels.Locations
 {

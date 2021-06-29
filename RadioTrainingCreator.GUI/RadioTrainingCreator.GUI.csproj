@@ -102,7 +102,8 @@
     <Compile Include="ViewModels\Basics\DataWindowViewModel.cs" />
     <Compile Include="ViewModels\Basics\EditorViewModels\EditorViewModel.cs" />
     <Compile Include="ViewModels\Basics\EditorViewModels\RadioTrainingEditorViewModel.cs" />
-    <Compile Include="ViewModels\Basics\PageViewModel.cs" />
+    <Compile Include="ViewModels\Basics\PageViewModels\PageViewModel.cs" />
+    <Compile Include="ViewModels\Basics\PageViewModels\RadioTrainingItemPageViewModel.cs" />
     <Compile Include="ViewModels\Basics\WindowViewModel.cs" />
     <Compile Include="ViewModels\DataWindowsViewModels\RadioTrainingDataWindowViewModel.cs" />
     <Compile Include="ViewModels\MainWindowViewModels\ContentViewModels\FireDepartments\FireDepartmentEditorViewModel.cs" />

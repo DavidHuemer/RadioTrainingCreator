@@ -2,12 +2,9 @@
 using RadioTrainingCreator.Data;
 using System;
 
-namespace RadioTrainingCreator.GUI.ViewModels.Basics
+namespace RadioTrainingCreator.GUI.ViewModels.Basics.PageViewModels
 {
-    /// <summary>
-    /// Base class for all PageViewModels
-    /// </summary>
-    public abstract class PageViewModel : BaseViewModel
+    public abstract class PageViewModel
     {
         public PageViewModel(string displayName)
         {

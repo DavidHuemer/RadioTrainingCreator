@@ -1,5 +1,6 @@
 ﻿using RadioTrainingCreator.GUI.Services.Interfaces;
 using RadioTrainingCreator.Handler.FilesHandler;
+using System;
 using System.ComponentModel;
 using System.Windows;
 
@@ -27,6 +28,25 @@ namespace RadioTrainingCreator.GUI.Services.Services.FileServices
                         e.Cancel = true;
                         break;
                 }
+            }
+        }
+
+        /// <summary>
+        /// Saves the current project
+        /// </summary>
+        /// <param name="messageService">The messageService that is used to inform the user 
+        /// when the saving failed.</param>
+        public static void Save(IMessageService messageService)
+        {
+            try
+            {
+                SaveManager.Instance.Save();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                messageService.ShowError("Fehler beim speichern",
+                    "Konnte das Projekt nicht speichern.");
             }
         }
     }

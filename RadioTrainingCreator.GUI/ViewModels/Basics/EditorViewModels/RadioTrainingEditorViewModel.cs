@@ -1,4 +1,6 @@
-﻿namespace RadioTrainingCreator.GUI.ViewModels.Basics.EditorViewModels
+﻿using RadioTrainingCreator.Handler.FilesHandler;
+
+namespace RadioTrainingCreator.GUI.ViewModels.Basics.EditorViewModels
 {
     public abstract class RadioTrainingEditorViewModel<T> : EditorViewModel where T : class
     {
@@ -14,6 +16,8 @@
             {
                 UpdateCurrent();
             }
+
+            SaveManager.Instance.Unsave();
         }
     }
 }

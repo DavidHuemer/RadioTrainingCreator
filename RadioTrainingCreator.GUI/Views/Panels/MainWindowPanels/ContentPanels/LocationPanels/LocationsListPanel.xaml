@@ -4,9 +4,16 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:RadioTrainingCreator.GUI.Views.Panels.MainWindowPanels.ContentPanels.LocationPanels"
+             xmlns:locationVms="clr-namespace:RadioTrainingCreator.GUI.ViewModels.MainWindowViewModels.ContentViewModels.Locations"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+             d:DesignHeight="450" d:DesignWidth="800"
+             d:DataContext="{d:DesignInstance Type=locationVms:LocationsPageViewModel}">
     <Grid>
-            
+        <Grid.RowDefinitions>
+            <RowDefinition Height="26"/>
+        </Grid.RowDefinitions>
+
+        <Button Content="Koordinaten hinzufügen"
+                Command="{Binding Add}"/>
     </Grid>
 </UserControl>

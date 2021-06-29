@@ -25,7 +25,7 @@ namespace RadioTrainingCreator.Handler.FilesHandler
 
         }
 
-        public bool IsSaved { get; private set; }
+        public bool IsSaved { get; private set; } = true;
 
         public void Save()
         {

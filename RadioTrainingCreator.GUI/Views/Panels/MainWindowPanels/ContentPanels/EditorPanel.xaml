@@ -27,7 +27,8 @@
 
                 <DockPanel>
                     <Button Content="Abbrechen"
-                            HorizontalAlignment="Right" DockPanel.Dock="Right"/>
+                            HorizontalAlignment="Right" DockPanel.Dock="Right"
+                            Command="{Binding Cancel}"/>
                     <Button Content="Speichern"
                             HorizontalAlignment="Right" DockPanel.Dock="Right"
                             Margin="0,0,10,0"

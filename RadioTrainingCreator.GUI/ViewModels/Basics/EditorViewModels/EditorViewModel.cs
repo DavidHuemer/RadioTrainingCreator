@@ -40,6 +40,18 @@ namespace RadioTrainingCreator.GUI.ViewModels.Basics.EditorViewModels
 
         #endregion
 
+        #region Cancel
+
+        public RelayCommand<string> Cancel => new RelayCommand<string>(o => { DoCancel(); }, o => true);
+
+        public void DoCancel()
+        {
+            Clear();
+            Hide();
+        }
+
+        #endregion
+
         #endregion
 
         protected abstract void UpdateCanSave();

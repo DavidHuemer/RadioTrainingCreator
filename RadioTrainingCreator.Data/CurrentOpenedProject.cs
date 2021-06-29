@@ -1,5 +1,6 @@
 ﻿using RadioTrainingCreator.Data.Files;
 using System;
+using System.ComponentModel;
 
 namespace RadioTrainingCreator.Data
 {
@@ -31,6 +32,7 @@ namespace RadioTrainingCreator.Data
         #region Properties
 
         public event EventHandler<EventArgs> CurrentProjectChanged;
+        public event EventHandler<EventArgs> ProjectPropertyChanged;
 
         /// <summary>
         /// The current opened project
@@ -56,7 +58,9 @@ namespace RadioTrainingCreator.Data
             RadioTraining = radioTraining;
             OpenedProjectFile = path;
             CurrentProjectChanged?.Invoke(this, new EventArgs());
+            RadioTraining.PropertyChanged += ProjectProperty_Changed;
         }
+
 
         /// <summary>
         /// Sets the RadioTraining and the path
@@ -68,5 +72,10 @@ namespace RadioTrainingCreator.Data
         }
         
         #endregion
+
+        private void ProjectProperty_Changed(object sender, PropertyChangedEventArgs e)
+        {
+            ProjectPropertyChanged?.Invoke(this, e);
+        }
     }
 }

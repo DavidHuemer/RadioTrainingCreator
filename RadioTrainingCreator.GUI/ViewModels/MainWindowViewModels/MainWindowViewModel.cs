@@ -1,8 +1,12 @@
 ﻿using RadioTrainingCreator.Data;
+using RadioTrainingCreator.GUI.Services.Services.FileServices;
 using RadioTrainingCreator.GUI.ViewModels.Basics;
 using RadioTrainingCreator.GUI.ViewModels.MainWindowViewModels.ContentViewModels;
 using RadioTrainingCreator.Handler;
+using RadioTrainingCreator.Handler.FilesHandler;
 using System;
+using System.ComponentModel;
+using System.Windows;
 
 namespace RadioTrainingCreator.GUI.ViewModels.MainWindowViewModels
 {
@@ -25,8 +29,14 @@ namespace RadioTrainingCreator.GUI.ViewModels.MainWindowViewModels
         {
             CurrentRadioTraining = CurrentOpenedProject.Instance.RadioTraining;
             CurrentOpenedProject.Instance.CurrentProjectChanged += CurrentProject_Changed;
+            CurrentOpenedProject.Instance.ProjectPropertyChanged += ProjectProperty_Changed;
 
             ContentVM = new ContentViewModel();
+        }
+
+        public void WindowClosing(object sender, CancelEventArgs e)
+        {
+            SaveService.CheckSaving(MessageService, e);
         }
 
         #endregion
@@ -58,6 +68,11 @@ namespace RadioTrainingCreator.GUI.ViewModels.MainWindowViewModels
         private void CurrentProject_Changed(object sender, EventArgs e)
         {
             CurrentRadioTraining = CurrentOpenedProject.Instance.RadioTraining;
+        }
+
+        private void ProjectProperty_Changed(object sender, EventArgs e)
+        {
+            SaveManager.Instance.Unsave();
         }
     }
 }

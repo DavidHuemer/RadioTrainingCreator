@@ -37,6 +37,7 @@
         </Grid>
 
         <ListBox ItemsSource="{Binding CurrentRadioTraining.FireDepartments}"
+                 SelectedItem="{Binding CurrentItem}"
                  DisplayMemberPath="FullName"
                  Grid.Row="1"/>
     </Grid>

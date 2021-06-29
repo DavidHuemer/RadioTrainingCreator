@@ -29,6 +29,7 @@ namespace RadioTrainingCreator.GUI.Views.Windows
             InitializeComponent();
             DataContext = MainWindowViewModel.Instance;
             MainWindowViewModel.Instance.Init(Close);
+            Closing += MainWindowViewModel.Instance.WindowClosing;
         }
     }
 }

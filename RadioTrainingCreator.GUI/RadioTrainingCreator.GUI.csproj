@@ -108,6 +108,7 @@
     <Compile Include="ViewModels\DataWindowsViewModels\RadioTrainingDataWindowViewModel.cs" />
     <Compile Include="ViewModels\MainWindowViewModels\ContentViewModels\FireDepartments\FireDepartmentEditorViewModel.cs" />
     <Compile Include="ViewModels\MainWindowViewModels\ContentViewModels\FireDepartments\FireDepartmentsPageViewModel.cs" />
+    <Compile Include="ViewModels\MainWindowViewModels\ContentViewModels\Locations\LocationEditorViewModel.cs" />
     <Compile Include="ViewModels\MainWindowViewModels\ContentViewModels\Locations\LocationsPageViewModel.cs" />
     <Compile Include="ViewModels\MainWindowViewModels\ContentViewModels\ContentViewModel.cs" />
     <Compile Include="ViewModels\MainWindowViewModels\MainWindowViewModel.cs" />

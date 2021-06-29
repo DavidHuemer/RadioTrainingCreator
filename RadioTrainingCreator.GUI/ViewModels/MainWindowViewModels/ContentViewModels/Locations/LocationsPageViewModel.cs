@@ -5,9 +5,11 @@ namespace RadioTrainingCreator.GUI.ViewModels.MainWindowViewModels.ContentViewMo
 {
     public class LocationsPageViewModel : RadioTrainingItemPageViewModel<Location>
     {
+        public LocationEditorViewModel LocationEditor { get; set; }
+
         public LocationsPageViewModel() : base("Koordinaten")
         {
-
+            LocationEditor = new LocationEditorViewModel();
         }
 
         public override void DoAdd()

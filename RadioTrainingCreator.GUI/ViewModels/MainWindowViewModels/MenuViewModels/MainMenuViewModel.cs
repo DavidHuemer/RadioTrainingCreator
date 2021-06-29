@@ -3,6 +3,7 @@ using RadioTrainingCreator.Data.Files;
 using RadioTrainingCreator.GUI.Services.FileServices;
 using RadioTrainingCreator.GUI.Services.Interfaces;
 using RadioTrainingCreator.GUI.Services.Interfaces.FileInterfaces;
+using RadioTrainingCreator.GUI.Services.Services.FileServices;
 using RadioTrainingCreator.GUI.Services.Services.WindowServices;
 using RadioTrainingCreator.GUI.ViewModels.Basics;
 using RadioTrainingCreator.GUI.ViewModels.DataWindowsViewModels;
@@ -69,19 +70,7 @@ namespace RadioTrainingCreator.GUI.ViewModels.MainWindowViewModels.MenuViewModel
             DoSave();
         }, x => true);
 
-        public void DoSave()
-        {
-            try
-            {
-                SaveManager.Instance.Save();
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.Message);
-                MessageService.ShowError("Fehler beim speichern",
-                    "Konnte das Projekt nicht speichern.");
-            }
-        }
+        public void DoSave() => SaveService.Save(MessageService);
 
         #endregion
 

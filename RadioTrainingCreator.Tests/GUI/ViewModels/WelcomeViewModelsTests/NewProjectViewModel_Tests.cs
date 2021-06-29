@@ -17,7 +17,7 @@ namespace RadioTrainingCreator.Tests.GUI.ViewModels.WelcomeViewModelsTests
         {
             var mock = new Mock<IFileDialogService>();
             var newProjectVm = new NewProjectViewModel(mock.Object);
-            newProjectVm.Init(ProjectCreatedCallback);
+            newProjectVm.InitOpenProject(ProjectCreatedCallback);
 
             string folder = $"{TEST_ENVIRONMENT}";
             string name = $"uebung.fue";
@@ -33,7 +33,7 @@ namespace RadioTrainingCreator.Tests.GUI.ViewModels.WelcomeViewModelsTests
             Assert.True(callbackCalled);
         }
 
-        private void ProjectCreatedCallback()
+        private void ProjectCreatedCallback(string arg1, RadioTraining arg2)
         {
             callbackCalled = true;
         }

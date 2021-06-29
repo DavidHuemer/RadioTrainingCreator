@@ -55,7 +55,6 @@ namespace RadioTrainingCreator.GUI.ViewModels.MainWindowViewModels.ContentViewMo
             };
 
             CurrentOpenedProject.Instance.RadioTraining.FireDepartments.Add(newFireDepartment);
-            Hide();
         }
 
         protected override void UpdateCanSave()
@@ -66,7 +65,14 @@ namespace RadioTrainingCreator.GUI.ViewModels.MainWindowViewModels.ContentViewMo
 
         protected override void UpdateCurrent()
         {
-            throw new System.NotImplementedException();
+            CurrentObject.RadioCallName = RadioCallName;
+            CurrentObject.Name = Name;
+        }
+
+        protected override void SetProperties(FireDepartment item)
+        {
+            RadioCallName = item.RadioCallName;
+            Name = item.Name;
         }
     }
 }

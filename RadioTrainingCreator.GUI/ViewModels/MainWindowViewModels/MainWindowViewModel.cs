@@ -1,4 +1,5 @@
-﻿using RadioTrainingCreator.Data;
+﻿using MVVM.Tools;
+using RadioTrainingCreator.Data;
 using RadioTrainingCreator.GUI.Services.Services.FileServices;
 using RadioTrainingCreator.GUI.ViewModels.Basics;
 using RadioTrainingCreator.GUI.ViewModels.MainWindowViewModels.ContentViewModels;
@@ -6,7 +7,6 @@ using RadioTrainingCreator.Handler;
 using RadioTrainingCreator.Handler.FilesHandler;
 using System;
 using System.ComponentModel;
-using System.Windows;
 
 namespace RadioTrainingCreator.GUI.ViewModels.MainWindowViewModels
 {
@@ -74,5 +74,8 @@ namespace RadioTrainingCreator.GUI.ViewModels.MainWindowViewModels
         {
             SaveManager.Instance.Unsave();
         }
+
+        public RelayCommand<string> Save => new RelayCommand<string>(o => { DoSave(); }, o => true);
+        public void DoSave() => SaveService.Save(MessageService);
     }
 }

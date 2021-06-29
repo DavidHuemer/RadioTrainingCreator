@@ -1,8 +1,10 @@
-﻿using RadioTrainingCreator.GUI.ViewModels.Basics;
+﻿using RadioTrainingCreator.Data;
+using RadioTrainingCreator.GUI.ViewModels.Basics;
+using RadioTrainingCreator.GUI.ViewModels.Basics.PageViewModels;
 
 namespace RadioTrainingCreator.GUI.ViewModels.MainWindowViewModels.ContentViewModels.FireDepartments
 {
-    public class FireDepartmentsPageViewModel : PageViewModel
+    public class FireDepartmentsPageViewModel : RadioTrainingItemPageViewModel<FireDepartment>
     {
         public FireDepartmentEditorViewModel FireDepartmentEditor { get; set; }
 
@@ -14,6 +16,11 @@ namespace RadioTrainingCreator.GUI.ViewModels.MainWindowViewModels.ContentViewMo
         public override void DoAdd()
         {
             FireDepartmentEditor.ShowCreateNew();
+        }
+
+        public override void ShowUpdateCurrent(FireDepartment item)
+        {
+            FireDepartmentEditor.ShowUpdateItem(item);
         }
     }
 }
